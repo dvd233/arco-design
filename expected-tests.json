@@ -1,0 +1,622 @@
+{
+  "schemaVersion": 1,
+  "describe": "Slider onlyMarkValue keyboard navigation",
+  "sourceFile": "components/Slider/__test__/index.test.tsx",
+  "sourceSha256": "834845c79109cbeae2a08f87e4ac2d77af2fa19b0d184770c4d4f79762636521",
+  "status": "Static predictions only. Not measured native results. Fail closed if output or any primary failure differs.",
+  "expectedFocusedCount": 22,
+  "predictedBaselineFailed": 18,
+  "predictedBaselinePassed": 4,
+  "candidateExpectedPassed": 22,
+  "tests": [
+    {
+      "title": "should traverse mixed marks in numeric order",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toHaveBeenLastCalledWith",
+        "expected": 0,
+        "received": -10,
+        "sourceLine": 390,
+        "callCount": 2
+      }
+    },
+    {
+      "title": "should traverse mixed marks inserted out of order in numeric order",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toHaveBeenLastCalledWith",
+        "expected": -10,
+        "received": -20,
+        "sourceLine": 390,
+        "callCount": 1
+      }
+    },
+    {
+      "title": "should traverse all-negative marks inserted out of order in numeric order",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toHaveBeenLastCalledWith",
+        "expected": -20,
+        "received": -30,
+        "sourceLine": 390,
+        "callCount": 1
+      }
+    },
+    {
+      "title": "should traverse nonnegative marks in numeric order",
+      "baseline": "passed"
+    },
+    {
+      "title": "should stay at mark boundary -20 on ArrowLeft",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toEqual",
+        "expected": [
+          [
+            -20
+          ],
+          [
+            -20
+          ]
+        ],
+        "received": [
+          [
+            20
+          ],
+          [
+            10
+          ]
+        ],
+        "sourceLine": 413
+      }
+    },
+    {
+      "title": "should stay at mark boundary 20 on ArrowRight",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toEqual",
+        "expected": [
+          [
+            20
+          ],
+          [
+            20
+          ]
+        ],
+        "received": [
+          [
+            -20
+          ],
+          [
+            -10
+          ]
+        ],
+        "sourceLine": 413
+      }
+    },
+    {
+      "title": "should navigate from the normalized nearest mark",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toHaveBeenLastCalledWith",
+        "expected": 0,
+        "received": -10,
+        "sourceLine": 424,
+        "callCount": 1
+      }
+    },
+    {
+      "title": "should navigate range values for -10,10",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toHaveBeenLastCalledWith",
+        "expected": [
+          0,
+          10
+        ],
+        "received": [
+          -10,
+          10
+        ],
+        "sourceLine": 441,
+        "callCount": 1
+      }
+    },
+    {
+      "title": "should navigate range values for -20,-10,10",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toHaveBeenLastCalledWith",
+        "expected": [
+          -20,
+          0,
+          10
+        ],
+        "received": [
+          -20,
+          -10,
+          10
+        ],
+        "sourceLine": 441,
+        "callCount": 1
+      }
+    },
+    {
+      "title": "should preserve sorted range values when a thumb crosses another",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toHaveBeenLastCalledWith",
+        "expected": [
+          0,
+          0
+        ],
+        "received": [
+          -10,
+          0
+        ],
+        "sourceLine": 457,
+        "callCount": 1
+      }
+    },
+    {
+      "title": "should keep controlled values until the parent accepts an update",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toEqual",
+        "expected": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "received": [
+          [
+            -10
+          ],
+          [
+            -10
+          ]
+        ],
+        "sourceLine": 472
+      }
+    },
+    {
+      "title": "should ignore arrow keys while disabled",
+      "baseline": "passed"
+    },
+    {
+      "title": "should preserve arrows (vertical=false reverse=false rtl=false)",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toEqual",
+        "expected": [
+          [
+            0
+          ],
+          [
+            -10
+          ],
+          [
+            0
+          ],
+          [
+            -10
+          ]
+        ],
+        "received": [
+          [
+            -10
+          ],
+          [
+            -20
+          ],
+          [
+            -10
+          ],
+          [
+            -20
+          ]
+        ],
+        "sourceLine": 520
+      }
+    },
+    {
+      "title": "should preserve arrows (vertical=false reverse=false rtl=true)",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toEqual",
+        "expected": [
+          [
+            0
+          ],
+          [
+            -10
+          ],
+          [
+            0
+          ],
+          [
+            -10
+          ]
+        ],
+        "received": [
+          [
+            -10
+          ],
+          [
+            -20
+          ],
+          [
+            -10
+          ],
+          [
+            -20
+          ]
+        ],
+        "sourceLine": 520
+      }
+    },
+    {
+      "title": "should preserve arrows (vertical=false reverse=true rtl=false)",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toEqual",
+        "expected": [
+          [
+            0
+          ],
+          [
+            -10
+          ],
+          [
+            0
+          ],
+          [
+            -10
+          ]
+        ],
+        "received": [
+          [
+            -10
+          ],
+          [
+            -20
+          ],
+          [
+            -10
+          ],
+          [
+            -20
+          ]
+        ],
+        "sourceLine": 520
+      }
+    },
+    {
+      "title": "should preserve arrows (vertical=false reverse=true rtl=true)",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toEqual",
+        "expected": [
+          [
+            0
+          ],
+          [
+            -10
+          ],
+          [
+            0
+          ],
+          [
+            -10
+          ]
+        ],
+        "received": [
+          [
+            -10
+          ],
+          [
+            -20
+          ],
+          [
+            -10
+          ],
+          [
+            -20
+          ]
+        ],
+        "sourceLine": 520
+      }
+    },
+    {
+      "title": "should preserve arrows (vertical=true reverse=false rtl=false)",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toEqual",
+        "expected": [
+          [
+            0
+          ],
+          [
+            -10
+          ],
+          [
+            0
+          ],
+          [
+            -10
+          ]
+        ],
+        "received": [
+          [
+            -10
+          ],
+          [
+            -20
+          ],
+          [
+            -10
+          ],
+          [
+            -20
+          ]
+        ],
+        "sourceLine": 520
+      }
+    },
+    {
+      "title": "should preserve arrows (vertical=true reverse=false rtl=true)",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toEqual",
+        "expected": [
+          [
+            0
+          ],
+          [
+            -10
+          ],
+          [
+            0
+          ],
+          [
+            -10
+          ]
+        ],
+        "received": [
+          [
+            -10
+          ],
+          [
+            -20
+          ],
+          [
+            -10
+          ],
+          [
+            -20
+          ]
+        ],
+        "sourceLine": 520
+      }
+    },
+    {
+      "title": "should preserve arrows (vertical=true reverse=true rtl=false)",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toEqual",
+        "expected": [
+          [
+            0
+          ],
+          [
+            -10
+          ],
+          [
+            0
+          ],
+          [
+            -10
+          ]
+        ],
+        "received": [
+          [
+            -10
+          ],
+          [
+            -20
+          ],
+          [
+            -10
+          ],
+          [
+            -20
+          ]
+        ],
+        "sourceLine": 520
+      }
+    },
+    {
+      "title": "should preserve arrows (vertical=true reverse=true rtl=true)",
+      "baseline": "failed",
+      "firstFailure": {
+        "matcher": "toEqual",
+        "expected": [
+          [
+            0
+          ],
+          [
+            -10
+          ],
+          [
+            0
+          ],
+          [
+            -10
+          ]
+        ],
+        "received": [
+          [
+            -10
+          ],
+          [
+            -20
+          ],
+          [
+            -10
+          ],
+          [
+            -20
+          ]
+        ],
+        "sourceLine": 520
+      }
+    },
+    {
+      "title": "should preserve ordinary step navigation when onlyMarkValue is false",
+      "baseline": "passed"
+    },
+    {
+      "title": "should preserve the existing fallback at unmarked bounds",
+      "baseline": "passed"
+    }
+  ],
+  "existingTests": [
+    {
+      "ancestors": [
+        "mount and unmount"
+      ],
+      "title": "component could be updated and unmounted without errors"
+    },
+    {
+      "ancestors": [
+        "ConfigProvider componentConfig.Slider"
+      ],
+      "title": "default"
+    },
+    {
+      "ancestors": [
+        "ConfigProvider componentConfig.Slider"
+      ],
+      "title": "set className globally"
+    },
+    {
+      "ancestors": [
+        "ConfigProvider componentConfig.Slider"
+      ],
+      "title": "set className globally and component set className itself."
+    },
+    {
+      "ancestors": [
+        "ConfigProvider componentConfig.Slider"
+      ],
+      "title": "set data-* property"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "render correctly"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "render range slider correctly"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "marks slider"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "should select mark when onlyMarkValue is true"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "step slider"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "disabled slider"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "input slider"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "render ticks correctly"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "should auto reverse when begin is greater than end"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "should show tooltip when hovering slider button"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "should button onMoving/onMoveEnd/onMoveBegin event been called"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "should render reverse correctly"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "support intervalConfig correctly"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "render interval width correctly when set intervalConfig"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "should render correctly when showInput is Object"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "should render correctly when showInput is Object and in range scene"
+    },
+    {
+      "ancestors": [
+        "Slider "
+      ],
+      "title": "should render correctly when showInput is Empty Array or Empty Object"
+    }
+  ],
+  "expectedFullFileCount": 44,
+  "expectedExistingSnapshots": 4
+}

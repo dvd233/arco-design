@@ -1,123 +1,89 @@
-<div align="center">
-  <a href="https://arco.design" target="_blank">
-    <img alt="Arco Design Logo" width="200" src="https://avatars.githubusercontent.com/u/64576149?s=200&v=4"/>
-  </a>
-</div>
-<div align="center">
-  <h1>Arco Design</h1>
-</div>
+# Arco Slider negative marks: native DOM validation proposal
 
-<div align="center">
+This is a validation-only publication bundle for the user's own fork. It is not the product source tree and is not an upstream pull request.
 
-A comprehensive React UI components library based on the [Arco Design](https://arco.design/) system.
+## Status and boundaries
 
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/arco-design/arco-design/blob/main/LICENSE)
-[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/arco-design/awesome-arco)
+During preparation, only source inspection, artifact writing, and static inventory comparison were performed. No dependency installation, proposed script execution, native test, build, browser, listener, GitHub connector action, push, or publication was performed by this bundle's author. The workflow and its classifier have not been executed by the author. An independent audit may report its own separately scoped checks.
 
-</div>
+The expected native result is a **static prediction**: 18 specific baseline assertion failures plus four passing controls, then 22 candidate passes. The raw native failure format and payloads have not yet been observed. A strict classifier rejection is an unresolved gate, not permission to relabel arbitrary failures as the expected defect. Prior standalone hook research is separate evidence and does not establish a native DOM pass.
 
-<div align="center">
+This first stage uses the repository's original `yarn test:client` command, Arco/Jest configuration, React, `tests/util` renderer/events, and actual Slider implementation. It does not replace the hook/component, insert a hand-coded navigation implementation, update snapshots, or use the research fixture's dependencies.
 
-English | [简体中文](./README.zh-CN.md)
+The candidate full original Slider index runs only after the focused pair is accepted. Aggregate client/node suites, demo snapshots, CJS/ES/package builds, lint/type checks, and genuine browser/focus/visual QA remain separate pending stages. This workflow starts no browser or HTTP listener.
 
-</div>
+## Frozen source identity
 
-https://user-images.githubusercontent.com/19399269/141435899-e453cf75-d50f-4549-b8d0-37daebe46c36.mp4
+- Repository: [dvd233/arco-design](https://github.com/dvd233/arco-design)
+- Frozen base commit: `c2b050d9c7ce94bebba94f616a0721344231caac`
+- Base tree: `51f988b198e24b8ea898e5803cfa0698280a1ef7`
+- Baseline plus identical tests tree: `b5e76a788981e52ca5e08b3cfc0d1baf8b7627fe`
+- Published source-only candidate commit: [2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65](https://github.com/dvd233/arco-design/commit/2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65)
+- Candidate tree: `0a9a01536e61e5119f753f972e71967ac251f9c9`
+- Candidate sole parent: the frozen base commit above
+- Source freeze: `SOURCE_FREEZE.json`, version 2
 
-# Features
+The baseline checks out the exact base and applies only `patches/native-tests.patch`. The candidate checks out the exact published candidate commit at depth two, verifies its sole parent and tree, and reconstructs `base + candidate.patch` in a temporary Git index. It does not apply the candidate patch to an already patched checkout. Both variants' full tracked trees are reconstructed and verified again around installation, icon generation, configuration inspection, and tests. SHA-256 checks additionally bind the test, hook, manifests/locks, configuration, utilities, snapshots, and relevant component/icon sources.
 
-## Comprehensive
+The product change is one numeric sort of freshly obtained mark keys. The index=-1 fallback control flow is unchanged, but sorting can change which first key it selects for negative marks. The unmarked-boundary control covers only nonnegative marks `{10,20}`; this bundle does not claim identical fallback outputs for every mark object.
 
-With more than 60 crafted components that you can use out of the box.
+## Publication and permission boundary
 
-## Customizable theme
+Publish only the exact files in `publication-manifest.json` into a new independent empty Git tree. Never copy or inherit the upstream repository's other workflows into this tree. The separate source checkouts may contain their original `.github` directories as inert source inputs; they are not the publication root.
 
-Extensive design tokens can be customized to build your own theme. Two ways
-of customization are supported:
+The single workflow is restricted twice, by job condition and execution guard, to:
 
-* [With less-loader](https://arco.design/react/docs/theme)
-* [Design Lab](https://arco.design/themes) - Recommended!
+- Repository `dvd233/arco-design`, repository ID `1407419356`
+- Owner ID `111864431`
+- Exact ref `refs/heads/validation/slider-negative-marks-native`
+- Push to that branch or `workflow_dispatch` selecting that same branch
 
-## Reusable custom materials
+It grants only `contents: read`, uses `persist-credentials: false` for all checkouts, and uses no secret references, PR events, writes, comments, deployments, package publication, or shared cache action. It does not dispatch or publish itself. Review and publication are separate controlled steps.
 
-[Material market](https://arco.design/material/) provides a one-stop solution for materials management. Reuse customized modules to make a breakthrough in efficiency.
+Only official checkout, setup-node, and upload-artifact actions are used. Their immutable commit pins and prior official-repository verification provenance are in `actions-lock.json`. No fresh remote verification was performed while preparing this bundle.
 
-## TypeScript friendly
+`publication-manifest.json` includes the exact allowlist and SHA-256 for every other public file. The manifest cannot hash itself recursively; its bytes are bound by the independently reviewed publication tree/commit. No private logs, raw connector responses, credentials, or local research directories are publication inputs.
 
-All components are written in TypeScript so it's type friendly.
+## Toolchain and installation
 
+Upstream's contribution guide prescribes Yarn, offers own-fork Actions as an alternative for expensive native test runs, and its PR workflow selects Node 16. This proposal pins Node `16.20.2` and Yarn `1.22.22`; Node 16 is an upstream-compatibility runtime, not a recommendation for new applications. The hosted runner is ephemeral.
 
-# Installation
+A minimal isolated `toolchain/package.json` and npm v2 lock contain only the exact Yarn CLI. Its registry URL/integrity were copied from previously installed official Yarn metadata. The workflow uses `npm ci --ignore-scripts` only inside that toolchain folder, with an isolated temporary npm cache. It does not install or alter a global package manager. Nested `yarn` commands resolve to that same local CLI.
 
-Available as an [npm package](https://www.npmjs.com/package/@arco-design/web-react)
+Each source checkout receives its own original frozen root dependency install:
 
-```bash
-// with npm
-npm install @arco-design/web-react
+    node /absolute/bundle/toolchain/node_modules/yarn/bin/yarn.js install --frozen-lockfile --non-interactive --ignore-scripts --production=false --cache-folder /runner-temporary/variant-cache
 
-// with yarn
-yarn add @arco-design/web-react
-```
+Skipping all installation lifecycle scripts is intentional and visible: the root `prepare` script invokes Husky 7, and unrelated dependency scripts can write hooks or download browsers. The test command itself is not skipped or replaced. The original `yarn icon` command runs explicitly afterward. A native package that genuinely needs an omitted lifecycle step causes a setup failure requiring review; it must not count as the expected baseline red or be repaired by silently substituting dependencies.
 
-# Examples
+This focused scope installs only the root dependencies, not the site's separate package tree or a prebuilt replacement. If this real source test unexpectedly requires another upstream preparation stage, the workflow fails with evidence. Site/aggregate work is not smuggled into a focused pass.
 
-```typescript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Button } from '@arco-design/web-react';
-import '@arco-design/web-react/dist/css/arco.css';
+## Input integrity and generated icons
 
-function App() {
-  return (
-    <Button type='secondary'>
-      Hello World
-    </Button>
-  );
-}
+The source auditor includes ignored files when looking for unexpected inputs. Before installation, no untracked input is allowed. After installation, only `node_modules/` is allowed. After explicit icon generation, only that directory plus `icon/react-icon/` and `icon/react-icon-cjs/` are allowed. Symlinks must stay inside their corresponding allowed root.
 
-ReactDOM.render(<App />, document.getElementById('app'));
-```
+Dependencies are fully rehashed at every audited phase. One complete post-install dependency inventory and two post-icon generated-file inventories are retained per variant. Later phases retain aggregate hash/count reports; any mismatch also saves a detailed before/after delta. Baseline and candidate dependency digests must agree.
 
-# Useful Links
+The original icon command also rewrites four tracked files: `icon/index.js`, `icon/index.es.js`, `icon/index.d.ts`, and `icon/demo.js`. They must still match the frozen source tree. Any generation drift fails before tests and preserves the tracked diff. The workflow never resets those files, broadens the dirty-input allowlist, or claims a pass against altered inputs.
 
-* [Documentation website](https://arco.design/)
-* [Components documentation](https://arco.design/react/docs/overview)
-* [Dark mode](https://arco.design/react/docs/dark)
-* [Theme customization](https://arco.design/react/docs/theme)
-* [Figma component library](https://www.figma.com/file/M66cTiLXHa4SVyZIlfY5Pb/arco-Design-System?node-id=7945%3A44563)
-* [Awesome Arco](https://github.com/arco-design/awesome-arco)
-* [Bundler Plugins](https://github.com/arco-design/arco-plugins)
+The original runner's `--showConfig` output and resolved package versions/paths are preserved before testing. Jest caches live outside both source trees.
 
-# Ecosystems
+## Native commands and strict classification
 
-| Project               | Description                                             |
-| --------------------- | ------------------------------------------------------- |
-| [Vue Component Library] | A comprehensive Vue UI components library based on the [Arco Design](https://arco.design/) system |
-| [Design Lab] | A platform to create and manage your themes with ease. |
-| [Material Market] | A platform that provides massive high-quality customized materials to greatly boost development efficiency. |
-| [Icon Box] | One-stop platform to manage your icons. |
-| [Arco Pro] | A solution to quickly building applications from scratch. |
+For each variant, in sequence, the workflow runs the original native command with identical options:
 
-[Vue Component Library]: https://arco.design/vue/docs/start
-[Design Lab]: https://arco.design/themes
-[Material Market]: https://arco.design/material
-[Icon Box]: https://arco.design/iconbox
-[Arco Pro]: https://arco.design/pro/
+    yarn test:client --runTestsByPath components/Slider/__test__/index.test.tsx --testNamePattern='^Slider onlyMarkValue keyboard navigation ' --runInBand --collectCoverage=false --silent=false --ci --json --cacheDirectory=/runner-temporary/variant-jest-cache --outputFile=/absolute/evidence/variant/focused.jest.json
 
-# Browser Support
+The raw command exit code is retained even for the expected failing baseline. `tee` does not replace it. A completion marker confirms only that the invocation and integrity checks finished; it does not assert success.
 
-| [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/08095282566ac4e0fd98f89aed934b65.png~tplv-uwbnlip3yd-png.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>IE / Edge | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/40ad73571879dd8d9fd3fd524e0e45a4.png~tplv-uwbnlip3yd-png.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/4f59d35f6d6837b042c8badd95871b1d.png~tplv-uwbnlip3yd-png.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/eee2667f837a9c2ed531805850bf43ec.png~tplv-uwbnlip3yd-png.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3240334d3967dd263c8f4cdd2d93c525.png~tplv-uwbnlip3yd-png.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/f2454685df95a1a557a61861c5bec256.png~tplv-uwbnlip3yd-png.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Electron |
-| --------- | --------- | --------- | --------- | --------- | --------- |
-| Edge 16| 31| 49 | 31 | 36 | last 2 versions |
+`expected-tests.json` binds the exact 22 new titles and the 22 pre-existing test identities. The focused classifier requires exactly the new 22 to run and all 22 existing tests to be pending. It rejects missing/duplicate/unexpected identities, skipped new cases, counters inconsistent with those identities, imports/setup/runtime errors, interruptions, unanticipated assertion types/locations/payloads, missing JSON, abnormal exit codes, or changed inputs.
 
-# Contributing
+Each predicted baseline failure must occur at its exact first assertion line, with the predicted matcher and numeric expected/received values. Spy assertions also require the predicted call count. Literal structured Jest failure details are used when available; otherwise the classifier parses a narrowly supported numeric Expected/Received message or diff without evaluating text. Unrecognized formatting fails closed. Counts alone never establish baseline behavior.
 
-Developers interested in contributing should read the [Code of Conduct](./CODE_OF_CONDUCT.md) and the [Contributing Guide](./CONTRIBUTING.md).
+Only after that paired gate passes, the candidate runs the same original Slider index without a name filter. The second classifier requires all 44 tests and all four existing index snapshots to pass, with no pending/todo cases and no snapshot additions, updates, deletions, or unmatched entries. `--ci` and unchanged snapshot hashes prohibit silently refreshing snapshots. The separate Slider demo file is not included in this first-stage claim.
 
-Thank you to all the people who already contributed to ArcoDesign!
+## Evidence and interpretation
 
-<a href="https://github.com/arco-design/arco-design/graphs/contributors"><img src="https://contrib.rocks/image?repo=arco-design/arco-design" /></a>
+An always-run upload step retains `bundle/evidence/` for seven days. Evidence includes raw logs/exit codes, untouched Jest JSON, resolved native configuration/versions, patch reconstruction, phase-by-phase source audits, dependency/icon anchors, drift deltas if any, and separate focused/full classification reports. It excludes node_modules contents, package caches, source checkouts, secrets, and environment dumps.
 
-# License
-
-This project is [MIT licensed](./LICENSE).
+An accepted focused report establishes only this source-bound 22-case native DOM comparison. An accepted full report additionally establishes the original Slider index and its existing snapshots. Neither is a broad package, browser, accessibility, merge-readiness, or deployment claim. Setup/format/source failures remain visible blockers to diagnose before any wider validation stage.

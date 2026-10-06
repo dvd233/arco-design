@@ -1,0 +1,19 @@
+{
+  "freezeVersion": 2,
+  "baseCommit": "c2b050d9c7ce94bebba94f616a0721344231caac",
+  "baseTree": "51f988b198e24b8ea898e5803cfa0698280a1ef7",
+  "baselineWithTestsTree": "b5e76a788981e52ca5e08b3cfc0d1baf8b7627fe",
+  "candidateTree": "0a9a01536e61e5119f753f972e71967ac251f9c9",
+  "candidateFiles": {
+    "components/Slider/hooks/useLegalValue.ts": "f12f5a80fa6f2f154b81168037724bee8d3db685080256e573a5203abfbbd7d0",
+    "components/Slider/__test__/index.test.tsx": "834845c79109cbeae2a08f87e4ac2d77af2fa19b0d184770c4d4f79762636521"
+  },
+  "baselineHookSha256": "06f182033e3fa390b9168f9432284eace355e777ea2d6151077050d9712e5467",
+  "patches": {
+    "native-tests.patch": "06e33a0c3a1e15efc78335a02490501339e8d2267e0ac6ebbe4988c6789073b6",
+    "candidate.patch": "13740cf1b9fb5f68678c2a7d4d8ebed379105d0f485537166914c49655f06f5e"
+  },
+  "nativeStatus": "NOT RUN: two local install sessions cancelled; hosted source-bound CI proposed",
+  "browserStatus": "NOT RUN",
+  "changeFromPrevious": "Stable forEach-generated explicit test titles replace it.each; same 22 cases and assertions; runtime hook unchanged."
+}

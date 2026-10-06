@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "sourceFreezeVersion": 2,
+  "sourceRepository": "dvd233/arco-design",
+  "sourceRepositoryUrl": "https://github.com/dvd233/arco-design",
+  "upstreamRepositoryUrl": "https://github.com/arco-design/arco-design",
+  "baseCommit": "c2b050d9c7ce94bebba94f616a0721344231caac",
+  "baseTree": "51f988b198e24b8ea898e5803cfa0698280a1ef7",
+  "targetTestFile": "components/Slider/__test__/index.test.tsx",
+  "targetDescribe": "Slider onlyMarkValue keyboard navigation",
+  "nodeVersion": "16.20.2",
+  "yarnVersion": "1.22.22",
+  "variants": {
+    "baseline": {
+      "tree": "b5e76a788981e52ca5e08b3cfc0d1baf8b7627fe",
+      "patch": "patches/native-tests.patch",
+      "hookSha256": "06f182033e3fa390b9168f9432284eace355e777ea2d6151077050d9712e5467",
+      "checkoutCommit": "c2b050d9c7ce94bebba94f616a0721344231caac"
+    },
+    "candidate": {
+      "tree": "0a9a01536e61e5119f753f972e71967ac251f9c9",
+      "patch": "patches/candidate.patch",
+      "hookSha256": "f12f5a80fa6f2f154b81168037724bee8d3db685080256e573a5203abfbbd7d0",
+      "checkoutCommit": "2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65"
+    }
+  },
+  "candidateSourceSha256": {
+    "package.json": "1a34b4562ddbb35cc394ee2c8613775423c238f07f86b308c4ab6cb2da6b2a15",
+    "yarn.lock": "776292e19ebf3f1a43c3f7c35029946871aed14d2120c9e08fe89282b8e7cebc",
+    "site/package.json": "c4ba53693c6c9a657d796a3549f7629db144c30ec308f1773560debf4e6720c5",
+    "site/yarn.lock": "7a4d18ff8b0b55ad811ec5a83d56cb5bc28d76218e5549bcc19f134ce2b6fe8b",
+    "hooks/package.json": "5df27660e29278a0228cf0d461c374f4c5047b7f7da270b327ab058fa632e21c",
+    ".config/jest.config.js": "27042369e1783049e3c32021cbf40291ab8aa056d0caaf930100c202a7123399",
+    "scripts/jest.config.js": "399e41c191d1a023c57b5ffe545d834dfef1ceae2c0fefd9e177db23f8c1bc2f",
+    "tests/setup.js": "0ee899f7f07405a7c8e9972fa501f38a6817dde15e06edfd02525739523dc79b",
+    "tests/jest-dom-setup.js": "3fda33498468f092b5458dc9e405c3c18be71fe8b5dcdf3bf3c0c525057e776a",
+    "tests/util.ts": "52910f69c300d42c43cb776f2f72621c349f94d07dd944b166b2500e11275a82",
+    "tests/mountTest.tsx": "fcc1b46869a9a68627dd14d66feb82371916bea1d5b59d0224bcf1568be77446",
+    "tests/componentConfigTest.tsx": "1d5eb8edf78e5f1b1fc35f23ceef586e7c2418282ef699ee617e9c989957bba2",
+    "components/Slider/__test__/index.test.tsx": "834845c79109cbeae2a08f87e4ac2d77af2fa19b0d184770c4d4f79762636521",
+    "components/Slider/__test__/__snapshots__/index.test.tsx.snap": "c0bb0457973208ced0f70244e59c57912731c1b3c9059e8dc46e7743b3aa0a31",
+    "components/Slider/hooks/useLegalValue.ts": "f12f5a80fa6f2f154b81168037724bee8d3db685080256e573a5203abfbbd7d0",
+    "components/Slider/hooks/useInterval.ts": "7def8de20b7178bc522a8aaf4c1bb54c9cec7760b24c74c4c3896b4ac84d7f00",
+    "components/Slider/index.tsx": "6b46fcde5cd09ad88e012e52631f9c4d0a772b1dc6a4dc679a9fa4b2b70d267c",
+    "components/Slider/button.tsx": "057530108cbac525919ea9ebc6da1db18587e828202439c5832f38962c9bd937",
+    "components/ConfigProvider/index.tsx": "3e8685dd77832c1e62680c881cd601a05eee80f272179da38a8f37826e13be86",
+    "components/_util/hooks/useKeyboardEvent.ts": "d2d94b8bc9e22175ae25ebf02b6a6e12c7f5ffd822fa5444ad3cf0701f185cc4",
+    "icon/build/generate.js": "e5b3d5969095792b993c9fe94cb1bdaa14ebbc82a239ebb5e88a8a2401d08bad",
+    "icon/build/genDemo.js": "d75175307aef57c3f68928f1de7e578c5a2546c3d330eec66052911f0dff4d73",
+    "icon/build/getSvgData.js": "9da037a12fb82bd0701b4385e5ea8042af14ebe936d25daada7123549f6b0708",
+    "icon/index.js": "bd49d8461184123d39eaed6c117932c37aa17f93c347d3dcdd9be21e544498a1",
+    "icon/index.es.js": "5d671914bdfae15e2fbea665c6938bc317fa588e3c92501252c42638debf0e0a",
+    "icon/index.d.ts": "62479aebb2e36d2cd5313fd27338e87496fbeffb615c5616d8a249e56e944985",
+    "icon/demo.js": "9989c3f0c2b58c055f713031cf8d6eacec0fa1b5fd98043513455ba97165ff97",
+    "CONTRIBUTING.md": "24da200b8ccbc02162bf92296aee4d64dd6f3049a80d6951e7152e6a021757c4",
+    "CONTRIBUTING.zh-CN.md": "7343768234249d672df8a08bdba83293918d21cc7253ceb5c059d0178325d2e3",
+    ".github/workflows/pr_check.yml": "68a7dd5734da4b48ce58b48886348ace815a2b52458ff76e9cf38e80058f4b37"
+  },
+  "policy": {
+    "install": "Exact locked root install with --frozen-lockfile --ignore-scripts; explicit original yarn icon afterward. No source or package replacement.",
+    "allowedSourceUntrackedAfterInstall": [
+      "node_modules/"
+    ],
+    "allowedSourceUntrackedAfterIcon": [
+      "node_modules/",
+      "icon/react-icon/",
+      "icon/react-icon-cjs/"
+    ],
+    "trackedDrift": "Fail, retain full tracked diff and before/after hashes. Never reset generated files.",
+    "tests": "Original yarn test:client under its original arco-scripts/Jest configuration; no mock implementation.",
+    "snapshots": "Never update snapshots; CI=true and --ci.",
+    "status": "All native tests, workflow execution, builds and browser checks NOT RUN during preparation."
+  },
+  "candidateCommit": "2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65",
+  "candidateCommitUrl": "https://github.com/dvd233/arco-design/commit/2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65",
+  "candidateParent": "c2b050d9c7ce94bebba94f616a0721344231caac",
+  "sourceCommitVerification": "Commit, sole parent and tree were verified by the publisher; the workflow independently checks all three plus candidate.patch reconstruction."
+}

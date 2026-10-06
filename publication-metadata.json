@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "repository": "dvd233/arco-design",
+  "repositoryId": "1407419356",
+  "owner": "dvd233",
+  "ownerId": "111864431",
+  "ref": "refs/heads/validation/slider-negative-marks-native",
+  "publicationMode": "New independent empty tree containing only publication-manifest.json allowlist. Never use an upstream product-source tree as the publication root.",
+  "workflowPath": ".github/workflows/native-dom.yml",
+  "events": [
+    "push on exact branch",
+    "workflow_dispatch on exact branch"
+  ],
+  "permissions": {
+    "contents": "read"
+  },
+  "persistCredentials": false,
+  "secrets": false,
+  "externalWrites": false,
+  "deploy": false,
+  "packageInstalls": "Workflow proposal only. No packages installed while preparing this bundle.",
+  "artifactRetentionDays": 7,
+  "scope": "Source-bound native JSDOM first stage only. Candidate full original Slider index is a separate subsequent stage. Aggregate client/node suites, CJS/ES/package builds, lint/type checks, and real browser remain pending."
+}

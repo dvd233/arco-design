@@ -1,0 +1,92 @@
+name: Slider negative marks native DOM validation
+
+on:
+  push:
+    branches:
+      - validation/slider-negative-marks-native
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: slider-negative-marks-native-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  native-dom:
+    if: >-
+      github.repository == 'dvd233/arco-design' &&
+      github.repository_id == '1407419356' &&
+      github.repository_owner_id == '111864431' &&
+      github.ref == 'refs/heads/validation/slider-negative-marks-native' &&
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+    env:
+      CI: 'true'
+      TZ: Asia/Singapore
+      FORCE_COLOR: '0'
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+      PUPPETEER_SKIP_DOWNLOAD: 'true'
+      HUSKY: '0'
+      GIT_TERMINAL_PROMPT: '0'
+    steps:
+      - name: Check out the independent validation-only publication tree
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: dvd233/arco-design
+          ref: ${{ github.sha }}
+          path: bundle
+          fetch-depth: 1
+          persist-credentials: false
+          submodules: false
+          lfs: false
+
+      - name: Check publication allowlist and immutable file hashes
+        run: python3 bundle/scripts/integrity.py publication
+
+      - name: Set up the upstream-compatible source runtime
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: '16.20.2'
+          check-latest: false
+          package-manager-cache: false
+
+      - name: Check out the frozen source base for the behavioral baseline
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: dvd233/arco-design
+          ref: c2b050d9c7ce94bebba94f616a0721344231caac
+          path: baseline
+          fetch-depth: 1
+          persist-credentials: false
+          submodules: false
+          lfs: false
+
+      - name: Check out the exact published source-only candidate commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: dvd233/arco-design
+          ref: 2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65
+          path: candidate
+          fetch-depth: 2
+          persist-credentials: false
+          submodules: false
+          lfs: false
+
+      - name: Run the native pair and then the complete original Slider index
+        run: bash bundle/scripts/run-native.sh
+
+      - name: Preserve raw results, actual exit codes, and integrity evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: slider-native-${{ github.run_id }}-${{ github.run_attempt }}
+          path: bundle/evidence/
+          if-no-files-found: warn
+          retention-days: 7
+          include-hidden-files: false
