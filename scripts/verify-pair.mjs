@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import path from 'node:path';
+import { ROOT,argsOf,writeJson } from './source.mjs';
+import { executionScope } from './phase.mjs';
+import { verifyEvidencePair } from './verify-evidence.mjs';
+await executionScope();
+const args=argsOf();
+assert.equal(path.resolve(args.baseline),path.join(ROOT,'evidence/baseline'));
+assert.equal(path.resolve(args.fixed),path.join(ROOT,'evidence/fixed'));
+assert.equal(path.resolve(args.out),path.join(ROOT,'evidence/VERDICT.json'));
+await writeJson(path.resolve(args.out),await verifyEvidencePair(ROOT));
