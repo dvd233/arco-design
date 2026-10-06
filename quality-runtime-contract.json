@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "files": {
+    "node_modules/jest-config/build/normalize.js": "89cbbc7b32078a8c8e68f165632cd0a532dfe5f658e2bf513a518673c085a9bd",
+    "node_modules/jest-config/package.json": "219ca3c5b33ac1b2b053165f0a326f84c96da3eb4a12b5a38d99867906e7c28a"
+  },
+  "binding": "SHA-256 hashes from actual native run 37483595078 post-install dependency inventory. Fresh hosted source-local bytes must match.",
+  "generatedJestName": {
+    "source": "https://raw.githubusercontent.com/jestjs/jest/v26.6.3/packages/jest-config/src/normalize.ts",
+    "formula": "md5(rootDir + (configPath || \"\") + String(projectIndex))",
+    "thisRunner": "Original Arco passes JSON --config with one project: configPath empty and projectIndex 0. Require name === md5(rootDir + \"0\") before comparison canonicalizes this checkout-derived identifier.",
+    "verifiedRealV1Candidate": "088b0faf67fb934603327406265776b7",
+    "verifiedRealV1Baseline": "3749ece972febc6a7afd6d1afa6b680a"
+  },
+  "status": "Metadata/source inspection only; no new native execution."
+}

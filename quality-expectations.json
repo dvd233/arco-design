@@ -1,0 +1,440 @@
+{
+  "schemaVersion": 1,
+  "status": "Static inventory; new quality stages NOT RUN. Index names verified against native v2 raw result; demo titles and snapshot keys read from unchanged frozen source.",
+  "sliderClient": {
+    "candidate": {
+      "cases": [
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "mount and unmount component could be updated and unmounted without errors"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "ConfigProvider componentConfig.Slider default"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "ConfigProvider componentConfig.Slider set className globally"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "ConfigProvider componentConfig.Slider set className globally and component set className itself."
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "ConfigProvider componentConfig.Slider set data-* property"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  render correctly"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  render range slider correctly"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  marks slider"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should select mark when onlyMarkValue is true"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  step slider"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  disabled slider"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  input slider"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  render ticks correctly"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should auto reverse when begin is greater than end"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should show tooltip when hovering slider button"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should button onMoving/onMoveEnd/onMoveBegin event been called"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should render reverse correctly"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  support intervalConfig correctly"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  render interval width correctly when set intervalConfig"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should render correctly when showInput is Object"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should render correctly when showInput is Object and in range scene"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should render correctly when showInput is Empty Array or Empty Object"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should traverse mixed marks in numeric order"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should traverse mixed marks inserted out of order in numeric order"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should traverse all-negative marks inserted out of order in numeric order"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should traverse nonnegative marks in numeric order"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should stay at mark boundary -20 on ArrowLeft"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should stay at mark boundary 20 on ArrowRight"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should navigate from the normalized nearest mark"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should navigate range values for -10,10"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should navigate range values for -20,-10,10"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should preserve sorted range values when a thumb crosses another"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should keep controlled values until the parent accepts an update"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should ignore arrow keys while disabled"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=false reverse=false rtl=false)"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=false reverse=false rtl=true)"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=false reverse=true rtl=false)"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=false reverse=true rtl=true)"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=true reverse=false rtl=false)"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=true reverse=false rtl=true)"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=true reverse=true rtl=false)"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=true reverse=true rtl=true)"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should preserve ordinary step navigation when onlyMarkValue is false"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider onlyMarkValue keyboard navigation should preserve the existing fallback at unmarked bounds"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/basic.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/direction.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/fixed.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/format-tooltip.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/icon.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/input.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/interval.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/marks.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/range-multi.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/range.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/reversed.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/set-range.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/status.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/step.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/tooltip.md correctly"
+        }
+      ],
+      "snapshotKeys": [
+        "renders Slider/demo/basic.md correctly 1",
+        "renders Slider/demo/direction.md correctly 1",
+        "renders Slider/demo/fixed.md correctly 1",
+        "renders Slider/demo/format-tooltip.md correctly 1",
+        "renders Slider/demo/icon.md correctly 1",
+        "renders Slider/demo/input.md correctly 1",
+        "renders Slider/demo/interval.md correctly 1",
+        "renders Slider/demo/marks.md correctly 1",
+        "renders Slider/demo/range.md correctly 1",
+        "renders Slider/demo/range-multi.md correctly 1",
+        "renders Slider/demo/reversed.md correctly 1",
+        "renders Slider/demo/set-range.md correctly 1",
+        "renders Slider/demo/status.md correctly 1",
+        "renders Slider/demo/step.md correctly 1",
+        "renders Slider/demo/tooltip.md correctly 1",
+        "ConfigProvider componentConfig.Slider default 1",
+        "ConfigProvider componentConfig.Slider set className globally 1",
+        "ConfigProvider componentConfig.Slider set className globally and component set className itself. 1",
+        "ConfigProvider componentConfig.Slider set data-* property 1"
+      ]
+    },
+    "baseline": {
+      "cases": [
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "mount and unmount component could be updated and unmounted without errors"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "ConfigProvider componentConfig.Slider default"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "ConfigProvider componentConfig.Slider set className globally"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "ConfigProvider componentConfig.Slider set className globally and component set className itself."
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "ConfigProvider componentConfig.Slider set data-* property"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  render correctly"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  render range slider correctly"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  marks slider"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should select mark when onlyMarkValue is true"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  step slider"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  disabled slider"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  input slider"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  render ticks correctly"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should auto reverse when begin is greater than end"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should show tooltip when hovering slider button"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should button onMoving/onMoveEnd/onMoveBegin event been called"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should render reverse correctly"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  support intervalConfig correctly"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  render interval width correctly when set intervalConfig"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should render correctly when showInput is Object"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should render correctly when showInput is Object and in range scene"
+        },
+        {
+          "path": "components/Slider/__test__/index.test.tsx",
+          "title": "Slider  should render correctly when showInput is Empty Array or Empty Object"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/basic.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/direction.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/fixed.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/format-tooltip.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/icon.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/input.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/interval.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/marks.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/range-multi.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/range.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/reversed.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/set-range.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/status.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/step.md correctly"
+        },
+        {
+          "path": "components/Slider/__test__/demo.test.ts",
+          "title": "renders Slider/demo/tooltip.md correctly"
+        }
+      ],
+      "snapshotKeys": [
+        "renders Slider/demo/basic.md correctly 1",
+        "renders Slider/demo/direction.md correctly 1",
+        "renders Slider/demo/fixed.md correctly 1",
+        "renders Slider/demo/format-tooltip.md correctly 1",
+        "renders Slider/demo/icon.md correctly 1",
+        "renders Slider/demo/input.md correctly 1",
+        "renders Slider/demo/interval.md correctly 1",
+        "renders Slider/demo/marks.md correctly 1",
+        "renders Slider/demo/range.md correctly 1",
+        "renders Slider/demo/range-multi.md correctly 1",
+        "renders Slider/demo/reversed.md correctly 1",
+        "renders Slider/demo/set-range.md correctly 1",
+        "renders Slider/demo/status.md correctly 1",
+        "renders Slider/demo/step.md correctly 1",
+        "renders Slider/demo/tooltip.md correctly 1",
+        "ConfigProvider componentConfig.Slider default 1",
+        "ConfigProvider componentConfig.Slider set className globally 1",
+        "ConfigProvider componentConfig.Slider set className globally and component set className itself. 1",
+        "ConfigProvider componentConfig.Slider set data-* property 1"
+      ]
+    }
+  }
+}

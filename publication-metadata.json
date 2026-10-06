@@ -20,5 +20,5 @@
   "deploy": false,
   "packageInstalls": "Workflow proposal only. No packages installed while preparing this bundle.",
   "artifactRetentionDays": 7,
-  "scope": "Source-bound native JSDOM first stage only. Candidate full original Slider index is a separate subsequent stage. Aggregate client/node suites, CJS/ES/package builds, lint/type checks, and real browser remain pending."
+  "scope": "Preserved native-dom proof plus independent dependent native-quality: pristine source comparator, frozen root/site installs, original config/list capture, changed-file lint/format, source types, native CJS/ES/CSS, Slider index+demo client and complete configured client/node. All added quality gates NOT RUN during preparation; no browser execution."
 }

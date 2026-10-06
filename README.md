@@ -1,3 +1,7 @@
+# Native quality extension, version 3
+
+The new hosted-only quality proposal, which requires independent review, is described in [QUALITY.md](QUALITY.md). Its new gates have not been executed during preparation. The original v2 native proof files below are preserved; its hosted run subsequently passed 44 Slider index tests and four snapshots. Historical NOT RUN text in frozen v2 proposal metadata is not a status claim for that completed run.
+
 # Arco Slider negative marks: native DOM validation proposal
 
 This is a validation-only publication bundle for the user's own fork. It is not the product source tree and is not an upstream pull request.
