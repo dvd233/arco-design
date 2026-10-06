@@ -18,7 +18,7 @@
   "secrets": false,
   "externalWrites": false,
   "deploy": false,
-  "packageInstalls": "Workflow proposal only. No packages installed while preparing this bundle.",
+  "packageInstalls": "No packages installed locally while preparing any bundle. Hosted v3 run37495212993 passed exact candidate/base root+site installs, then failed metadata inspection; repaired v4 hosted run remains pending.",
   "artifactRetentionDays": 7,
-  "scope": "Preserved native-dom proof plus independent dependent native-quality: pristine source comparator, frozen root/site installs, original config/list capture, changed-file lint/format, source types, native CJS/ES/CSS, Slider index+demo client and complete configured client/node. All added quality gates NOT RUN during preparation; no browser execution."
+  "scope": "Preserved native-dom proof plus independent dependent native-quality: pristine source comparator, frozen root/site installs, original config/list capture, changed-file lint/format, source types, native CJS/ES/CSS, Slider index+demo client and complete configured client/node. V4 repairs only metadata discovery for a hidden package.json export. No native commands executed locally; subsequent hosted lint/type/build/test gates remain unexecuted after the v3 metadata blocker. No browser execution."
 }

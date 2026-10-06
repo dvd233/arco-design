@@ -23,5 +23,34 @@ try {
   assert.throws(() => resolveMetadata('ts-jest', fromArco, 'site/node_modules', root), /escaped/); checks++;
   const source = fs.readFileSync(path.join(__dirname, '../scripts/inspect-quality-runtime.cjs'), 'utf8');
   assert(source.includes("observe('ts-jest', fromArco, 'node_modules', '26.5.6')")); checks++;
+  // The package.json subpath is hidden, while the public entry remains resolvable.
+  put('site/package.json', {name: 'site-fixture'});
+  put('site/node_modules/exported-entry/package.json', {name: 'exported-entry', version: '3.5.3', exports: {'.': './dist/entry.js'}});
+  const hiddenRoot = path.join(root, 'site/node_modules/exported-entry');
+  fs.mkdirSync(path.join(hiddenRoot, 'dist'));
+  fs.writeFileSync(path.join(hiddenRoot, 'dist/entry.js'), "throw new Error('Package entry must never be executed');\n");
+  put('site/node_modules/exported-entry/dist/package.json', {type: 'commonjs'});
+  const fromSite = createRequire(path.join(root, 'site/package.json'));
+  assert.throws(() => fromSite.resolve('exported-entry/package.json'), {code: 'ERR_PACKAGE_PATH_NOT_EXPORTED'}); checks++;
+  const hidden = resolveMetadata('exported-entry', fromSite, 'site/node_modules', root, '3.5.3');
+  assert.strictEqual(hidden.record.packagePath, 'site/node_modules/exported-entry/package.json'); checks++;
+  assert.strictEqual(hidden.record.version, '3.5.3'); checks++;
+  assert.match(hidden.record.sha256, /^[a-f0-9]{64}$/); checks++;
+  assert.throws(() => resolveMetadata('exported-entry', fromSite, 'site/node_modules', root, '9.9.9'), /Unexpected pin/); checks++;
+  put('site/node_modules/missing-entry/package.json', {name: 'missing-entry', version: '1.0.0', exports: {'.': './absent.js'}});
+  assert.throws(() => resolveMetadata('missing-entry', fromSite, 'site/node_modules', root), {code: 'MODULE_NOT_FOUND'}); checks++;
+  put('site/node_modules/no-public-entry/package.json', {name: 'no-public-entry', version: '1.0.0', exports: {'./feature': './entry.js'}});
+  assert.throws(() => resolveMetadata('no-public-entry', fromSite, 'site/node_modules', root), {code: 'ERR_PACKAGE_PATH_NOT_EXPORTED'}); checks++;
+  put('site/node_modules/wrong-name/package.json', {name: 'different-package', version: '1.0.0', exports: {'.': './entry.js'}});
+  fs.writeFileSync(path.join(root, 'site/node_modules/wrong-name/entry.js'), "throw new Error('Do not execute');\n");
+  assert.throws(() => resolveMetadata('wrong-name', fromSite, 'site/node_modules', root), /Unexpected package name/); checks++;
+  put('site/node_modules/escaped-entry/package.json', {name: 'escaped-entry', version: '1.0.0', exports: {'.': './entry.js'}});
+  fs.writeFileSync(path.join(root, 'outside-entry.js'), "throw new Error('Do not execute');\n");
+  fs.symlinkSync(path.join(root, 'outside-entry.js'), path.join(root, 'site/node_modules/escaped-entry/entry.js'));
+  assert.throws(() => resolveMetadata('escaped-entry', fromSite, 'site/node_modules', root), /escaped/); checks++;
+  put('node_modules/wrong-visible-name/package.json', {name: 'different-package', version: '1.0.0'});
+  assert.throws(() => resolveMetadata('wrong-visible-name', fromRoot, 'node_modules', root), /Unexpected package name/); checks++;
+  const denied = {resolve() { const error = new Error('Synthetic filesystem denial'); error.code = 'EACCES'; throw error; }};
+  assert.throws(() => resolveMetadata('denied', denied, 'node_modules', root), {code: 'EACCES'}); checks++;
   console.log(JSON.stringify({checks, passed: checks, nativeExecuted: false}));
 } finally { fs.rmSync(root, {recursive: true, force: true}); }

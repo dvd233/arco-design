@@ -1,3 +1,7 @@
+# Native quality metadata repair, version 4
+
+The first quality run ([37495212993](https://github.com/dvd233/arco-design/actions/runs/37495212993)) passed frozen root/site installs on candidate and pristine base, then stopped at metadata inspection because react-easy-crop hides its package.json export. Later quality gates did not run. This narrow observer-only repair uses the package's permitted public entry to locate and read its installed manifest as data, preserving boundary/name/version/hash checks and executing no package code. Sixteen dependency-free metadata probes pass locally; the repaired hosted quality stages have not run. Original product/native proof stages are unchanged.
+
 # Native quality extension, version 3
 
 The new hosted-only quality proposal, which requires independent review, is described in [QUALITY.md](QUALITY.md). Its new gates have not been executed during preparation. The original v2 native proof files below are preserved; its hosted run subsequently passed 44 Slider index tests and four snapshots. Historical NOT RUN text in frozen v2 proposal metadata is not a status claim for that completed run.

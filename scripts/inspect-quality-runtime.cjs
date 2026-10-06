@@ -7,10 +7,38 @@ const crypto = require('crypto');
 const { createRequire } = require('module');
 function hash(p) { return crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'); }
 function resolveMetadata(name, req, boundary, root, pin) {
-  const file = fs.realpathSync(req.resolve(name + '/package.json'));
-  const rel = path.relative(path.join(root, boundary), file);
-  if (rel.startsWith('..') || path.isAbsolute(rel)) throw Error('Package escaped ' + boundary + ': ' + name);
+  const allowed = path.join(root, boundary);
+  function checked(file) {
+    const real = fs.realpathSync(file);
+    const relative = path.relative(allowed, real);
+    if (!relative || relative === '..' || relative.startsWith('..' + path.sep) || path.isAbsolute(relative)) {
+      throw Error('Package escaped ' + boundary + ': ' + name);
+    }
+    return real;
+  }
+  let file;
+  try {
+    file = checked(req.resolve(name + '/package.json'));
+  } catch (error) {
+    if (error.code !== 'ERR_PACKAGE_PATH_NOT_EXPORTED') throw error;
+    // Respect public exports. Resolve, never require/execute, the permitted entry.
+    // Read metadata only while walking its real ancestry inside this dependency root.
+    let directory = path.dirname(checked(req.resolve(name)));
+    while (directory !== allowed) {
+      const candidate = path.join(directory, 'package.json');
+      if (fs.existsSync(candidate)) {
+        const manifest = checked(candidate);
+        const value = JSON.parse(fs.readFileSync(manifest, 'utf8'));
+        if (value.name === name) { file = manifest; break; }
+        if (value.name !== undefined) throw Error('Unexpected package name for ' + name + ': ' + value.name);
+      }
+      directory = path.dirname(directory);
+    }
+    if (!file) throw Error('No matching package manifest for public entry: ' + name);
+  }
   const metadata = JSON.parse(fs.readFileSync(file, 'utf8'));
+  if (metadata.name !== name) throw Error('Unexpected package name for ' + name + ': ' + metadata.name);
+  if (typeof metadata.version !== 'string' || !metadata.version) throw Error('Missing package version: ' + name);
   if (pin && metadata.version !== pin) throw Error('Unexpected pin ' + name + ': ' + metadata.version);
   return { file, record: { name, version: metadata.version, packagePath: path.relative(root, file), sha256: hash(file) } };
 }
