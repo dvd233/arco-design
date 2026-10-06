@@ -4,13 +4,19 @@ This is a validation-only publication bundle for the user's own fork. It is not 
 
 ## Status and boundaries
 
-During preparation, only source inspection, artifact writing, and static inventory comparison were performed. No dependency installation, proposed script execution, native test, build, browser, listener, GitHub connector action, push, or publication was performed by this bundle's author. The workflow and its classifier have not been executed by the author. An independent audit may report its own separately scoped checks.
+The first official hosted native run, [37483595078](https://github.com/dvd233/arco-design/actions/runs/37483595078), completed the focused pair against the unchanged source freeze: **baseline 18 specific assertion failures plus four passing controls; candidate 22 passes**. V1 then rejected the real Jest 26 spy-array message format because its single array argument ended with an outer `],` delimiter. The workflow therefore did not reach the full original Slider index.
 
-The expected native result is a **static prediction**: 18 specific baseline assertion failures plus four passing controls, then 22 candidate passes. The raw native failure format and payloads have not yet been observed. A strict classifier rejection is an unresolved gate, not permission to relabel arbitrary failures as the expected defect. Prior standalone hook research is separate evidence and does not establish a native DOM pass.
+V2 changes only the failure-message classifier, its dependency-free regression fixtures/tests, this status explanation, and the publication manifest. The product source, expected identities/payloads, workflow, runner, toolchain locks, source guards, and native commands remain byte-for-byte unchanged. The numeric parser itself is unchanged. The repair accepts exactly one outer argument comma only for a matching single-array spy diff, after consuming its entire payload and verifying its metadata/stack footer. Extra arguments, trailing junk, malformed/truncated diffs and nonmatching assertion types remain rejected.
 
-This first stage uses the repository's original `yarn test:client` command, Arco/Jest configuration, React, `tests/util` renderer/events, and actual Slider implementation. It does not replace the hook/component, insert a hand-coded navigation implementation, update snapshots, or use the research fixture's dependencies.
+Author validation for V2: **45 classifier-only checks passed**, including all 18 actual failure messages, three existing no-outer-comma format controls, 22 negative controls, a replay of the entire real focused pair from byte-for-byte artifact copies, and reproduction of V1's rejection on those same inputs. This replay did not rerun native tests. The real pair's immutable source audits and original exit codes were included in the replay. A future hosted rerun must pass the current classifier before continuing to the full original Slider index.
 
-The candidate full original Slider index runs only after the focused pair is accepted. Aggregate client/node suites, demo snapshots, CJS/ES/package builds, lint/type checks, and genuine browser/focus/visual QA remain separate pending stages. This workflow starts no browser or HTTP listener.
+No dependency installation, native/product test, build, browser, listener, GitHub connector action, push, or publication was performed by this bundle's author. Only inspection, artifact writing and the specifically authorized small local classifier regression tests/replays were performed. Independent review and any publication are separate controlled steps.
+
+The original freeze and expected-test files retain their creation-time static-prediction/status wording as provenance; this section records the later actual run and classifier replay. Prior standalone hook research remains a separate evidence class.
+
+The workflow uses the repository's original `yarn test:client` command, Arco/Jest configuration, React, `tests/util` renderer/events, and actual Slider implementation. It does not replace the hook/component, insert a hand-coded navigation implementation, update snapshots, or use the research fixture's dependencies.
+
+The full original Slider index, aggregate client/node suites, demo snapshots, CJS/ES/package builds, lint/type checks, and genuine browser/focus/visual QA remain separate pending stages. This workflow starts no browser or HTTP listener.
 
 ## Frozen source identity
 
@@ -78,7 +84,7 @@ The raw command exit code is retained even for the expected failing baseline. `t
 
 `expected-tests.json` binds the exact 22 new titles and the 22 pre-existing test identities. The focused classifier requires exactly the new 22 to run and all 22 existing tests to be pending. It rejects missing/duplicate/unexpected identities, skipped new cases, counters inconsistent with those identities, imports/setup/runtime errors, interruptions, unanticipated assertion types/locations/payloads, missing JSON, abnormal exit codes, or changed inputs.
 
-Each predicted baseline failure must occur at its exact first assertion line, with the predicted matcher and numeric expected/received values. Spy assertions also require the predicted call count. Literal structured Jest failure details are used when available; otherwise the classifier parses a narrowly supported numeric Expected/Received message or diff without evaluating text. Unrecognized formatting fails closed. Counts alone never establish baseline behavior.
+Each predicted baseline failure must occur at its exact first assertion line, with the predicted matcher and numeric expected/received values. Spy assertions also require the predicted call count. Literal structured Jest failure details are used when available; otherwise the classifier parses a narrowly supported numeric Expected/Received message or diff without evaluating text. Unrecognized formatting fails closed. The complete bounded diff is consumed before parsing; a valid array prefix never permits trailing arguments or prose. Counts alone never establish baseline behavior.
 
 Only after that paired gate passes, the candidate runs the same original Slider index without a name filter. The second classifier requires all 44 tests and all four existing index snapshots to pass, with no pending/todo cases and no snapshot additions, updates, deletions, or unmatched entries. `--ci` and unchanged snapshot hashes prohibit silently refreshing snapshots. The separate Slider demo file is not included in this first-stage claim.
 
@@ -87,3 +93,21 @@ Only after that paired gate passes, the candidate runs the same original Slider 
 An always-run upload step retains `bundle/evidence/` for seven days. Evidence includes raw logs/exit codes, untouched Jest JSON, resolved native configuration/versions, patch reconstruction, phase-by-phase source audits, dependency/icon anchors, drift deltas if any, and separate focused/full classification reports. It excludes node_modules contents, package caches, source checkouts, secrets, and environment dumps.
 
 An accepted focused report establishes only this source-bound 22-case native DOM comparison. An accepted full report additionally establishes the original Slider index and its existing snapshots. Neither is a broad package, browser, accessibility, merge-readiness, or deployment claim. Setup/format/source failures remain visible blockers to diagnose before any wider validation stage.
+
+## Reproduce the classifier-only V2 regression checks
+
+The public fixture contains only the 18 actual failing assertion identities/messages extracted from the first run. It preserves all message whitespace, numeric payloads, source lines and stack suffixes. The sole message transformation replaces the absolute runner-workspace prefix with `<RUNNER_WORKSPACE>/`. Its provenance records the exact substitution, source entry SHA-256, original per-message SHA-256 values, run link, and verified source artifact ZIP SHA-256:
+
+    7029cddb6bfd50059e7adccd4cfb881c0f4170d51e7e2949778a378e2f40e3ca
+
+No dependency inventories, complete private audit, unrelated logs, or credentials are copied into the public fixture. The regression test reconstructs each original path prefix and verifies its recorded original message hash before classifying it.
+
+Run the dependency-free fixture/negative controls with an available Node runtime:
+
+    node tests/classifier-regression.cjs
+
+To additionally replay a locally obtained and verified original artifact, supply its extracted evidence directory. The test copies only the original raw focused Jest JSON, exit/completion codes and post-focused integrity summaries into a temporary directory. It never mutates that artifact, installs packages or executes the product:
+
+    node tests/classifier-regression.cjs --real-evidence /path/to/extracted-artifact --report /path/to/local-report.json
+
+An optional `--v1-classifier /path/to/v1/scripts/classify-results.cjs` also proves the former parser rejects the same unmodified pair. Actual replay reports remain separate from the small public fixtures; they are not synthesized native runs. The full-file stage and every aggregate/build/browser result still require future official execution.

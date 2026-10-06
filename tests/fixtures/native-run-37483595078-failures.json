@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "runId": "37483595078",
+    "runUrl": "https://github.com/dvd233/arco-design/actions/runs/37483595078",
+    "artifactZipSha256": "7029cddb6bfd50059e7adccd4cfb881c0f4170d51e7e2949778a378e2f40e3ca",
+    "sourceArtifactEntry": "baseline/focused.jest.json",
+    "sourceArtifactEntrySha256": "0e7648cf805caa80919e163746cd8f2eb4f0c1870993bb6c9499e59a7988749b",
+    "sourceCandidateCommit": "2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65",
+    "sourceCandidateTree": "0a9a01536e61e5119f753f972e71967ac251f9c9",
+    "baselineTree": "b5e76a788981e52ca5e08b3cfc0d1baf8b7627fe",
+    "extraction": "Select the 18 status=failed assertionResults. Copy fullName, ancestorTitles, title, status and failureMessages. No failureDetails existed in the original result. Add the original UTF-8 message SHA-256 values for provenance.",
+    "transformations": [
+      {
+        "field": "failureMessages[]",
+        "operation": "Replace every literal runner-workspace prefix with a neutral placeholder; all remaining message bytes, whitespace, assertion payloads, stack suffixes and source locations are retained.",
+        "from": "/home/runner/work/arco-design/arco-design/",
+        "to": "<RUNNER_WORKSPACE>/"
+      }
+    ],
+    "scope": "Parser regression fixtures only. They are real native failure messages, not newly executed native results. No dependency inventories or private audit files are included."
+  },
+  "cases": [
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should traverse mixed marks in numeric order",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should traverse mixed marks in numeric order",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(jest.fn()).toHaveBeenLastCalledWith(...expected)\n\nExpected: 0\nReceived\n       1: -10\n->     2: -10\n\nNumber of calls: 2\n    at <RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:390:28\n    at Array.forEach (<anonymous>)\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:388:16)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "1002c48788d6d097a7d30e4f291877324f72cb9c26f2d4f6381f778b9090b573"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should traverse mixed marks inserted out of order in numeric order",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should traverse mixed marks inserted out of order in numeric order",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(jest.fn()).toHaveBeenLastCalledWith(...expected)\n\nExpected: -10\nReceived: -20\n\nNumber of calls: 1\n    at <RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:390:28\n    at Array.forEach (<anonymous>)\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:388:16)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "842a8e25241a0eb3324bd0e4da3332db6d30de864dbd74943b5705d04f69632b"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should traverse all-negative marks inserted out of order in numeric order",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should traverse all-negative marks inserted out of order in numeric order",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(jest.fn()).toHaveBeenLastCalledWith(...expected)\n\nExpected: -20\nReceived: -30\n\nNumber of calls: 1\n    at <RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:390:28\n    at Array.forEach (<anonymous>)\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:388:16)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "74a7bdefc519be3aa0944b7487a829b0dd98387a57b30643c1e15e60934ced0c"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should stay at mark boundary -20 on ArrowLeft",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should stay at mark boundary -20 on ArrowLeft",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 2\n+ Received  + 2\n\n  Array [\n    Array [\n-     -20,\n+     20,\n    ],\n    Array [\n-     -20,\n+     10,\n    ],\n  ]\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:413:35)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "982bcaa40751a6a73989e48f743c46dd686f232b888b2598c8e834e6268cf8ee"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should stay at mark boundary 20 on ArrowRight",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should stay at mark boundary 20 on ArrowRight",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 2\n+ Received  + 2\n\n  Array [\n    Array [\n-     20,\n+     -20,\n    ],\n    Array [\n-     20,\n+     -10,\n    ],\n  ]\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:413:35)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "1142b4172feb8b98ee18bcb2d1a9f4e55665681da945d30ecf21f8ec8d9d2a14"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should navigate from the normalized nearest mark",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should navigate from the normalized nearest mark",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(jest.fn()).toHaveBeenLastCalledWith(...expected)\n\nExpected: 0\nReceived: -10\n\nNumber of calls: 1\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:424:22)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "11e480d532bf022f73a065096cea2c5e206e70249e743efab6d10626d3ee80dc"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should navigate range values for -10,10",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should navigate range values for -10,10",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(jest.fn()).toHaveBeenLastCalledWith(...expected)\n\n- Expected\n+ Received\n\n  Array [\n-   0,\n+   -10,\n    10,\n  ],\n\nNumber of calls: 1\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:441:24)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "f808ef3a9cb2007dad8e6dc66754eedc14df91d0b1c2a85642f9fd6cfb082ace"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should navigate range values for -20,-10,10",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should navigate range values for -20,-10,10",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(jest.fn()).toHaveBeenLastCalledWith(...expected)\n\n- Expected\n+ Received\n\n  Array [\n    -20,\n-   0,\n+   -10,\n    10,\n  ],\n\nNumber of calls: 1\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:441:24)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "fecb5238089e65e1b9bc545463ec20483f121cca0cdc6d3c3ba9ef1c06ad3dec"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should preserve sorted range values when a thumb crosses another",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should preserve sorted range values when a thumb crosses another",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(jest.fn()).toHaveBeenLastCalledWith(...expected)\n\n- Expected\n+ Received\n\n  Array [\n-   0,\n+   -10,\n    0,\n  ],\n\nNumber of calls: 1\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:457:22)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "a27e706178a17b00f5e1545185844bda702a9afc542f66de58fb710879203fd0"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should keep controlled values until the parent accepts an update",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should keep controlled values until the parent accepts an update",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 2\n+ Received  + 2\n\n  Array [\n    Array [\n-     0,\n+     -10,\n    ],\n    Array [\n-     0,\n+     -10,\n    ],\n  ]\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:472:33)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "ae236f8ff4f6110f3418496ec06054b9734d9e3b73934cbdf547c0f08e79f193"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=false reverse=false rtl=false)",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should preserve arrows (vertical=false reverse=false rtl=false)",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 4\n+ Received  + 4\n\n  Array [\n    Array [\n-     0,\n-   ],\n-   Array [\n      -10,\n    ],\n    Array [\n-     0,\n+     -20,\n    ],\n    Array [\n      -10,\n+   ],\n+   Array [\n+     -20,\n    ],\n  ]\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:520:35)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "043afe0124d1cf023a5ccbcd1c9c5aefa7b229136b80a002cc3123d104eb923a"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=false reverse=false rtl=true)",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should preserve arrows (vertical=false reverse=false rtl=true)",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 4\n+ Received  + 4\n\n  Array [\n    Array [\n-     0,\n-   ],\n-   Array [\n      -10,\n    ],\n    Array [\n-     0,\n+     -20,\n    ],\n    Array [\n      -10,\n+   ],\n+   Array [\n+     -20,\n    ],\n  ]\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:520:35)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "043afe0124d1cf023a5ccbcd1c9c5aefa7b229136b80a002cc3123d104eb923a"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=false reverse=true rtl=false)",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should preserve arrows (vertical=false reverse=true rtl=false)",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 4\n+ Received  + 4\n\n  Array [\n    Array [\n-     0,\n-   ],\n-   Array [\n      -10,\n    ],\n    Array [\n-     0,\n+     -20,\n    ],\n    Array [\n      -10,\n+   ],\n+   Array [\n+     -20,\n    ],\n  ]\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:520:35)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "043afe0124d1cf023a5ccbcd1c9c5aefa7b229136b80a002cc3123d104eb923a"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=false reverse=true rtl=true)",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should preserve arrows (vertical=false reverse=true rtl=true)",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 4\n+ Received  + 4\n\n  Array [\n    Array [\n-     0,\n-   ],\n-   Array [\n      -10,\n    ],\n    Array [\n-     0,\n+     -20,\n    ],\n    Array [\n      -10,\n+   ],\n+   Array [\n+     -20,\n    ],\n  ]\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:520:35)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "043afe0124d1cf023a5ccbcd1c9c5aefa7b229136b80a002cc3123d104eb923a"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=true reverse=false rtl=false)",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should preserve arrows (vertical=true reverse=false rtl=false)",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 4\n+ Received  + 4\n\n  Array [\n    Array [\n-     0,\n-   ],\n-   Array [\n      -10,\n    ],\n    Array [\n-     0,\n+     -20,\n    ],\n    Array [\n      -10,\n+   ],\n+   Array [\n+     -20,\n    ],\n  ]\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:520:35)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "043afe0124d1cf023a5ccbcd1c9c5aefa7b229136b80a002cc3123d104eb923a"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=true reverse=false rtl=true)",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should preserve arrows (vertical=true reverse=false rtl=true)",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 4\n+ Received  + 4\n\n  Array [\n    Array [\n-     0,\n-   ],\n-   Array [\n      -10,\n    ],\n    Array [\n-     0,\n+     -20,\n    ],\n    Array [\n      -10,\n+   ],\n+   Array [\n+     -20,\n    ],\n  ]\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:520:35)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "043afe0124d1cf023a5ccbcd1c9c5aefa7b229136b80a002cc3123d104eb923a"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=true reverse=true rtl=false)",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should preserve arrows (vertical=true reverse=true rtl=false)",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 4\n+ Received  + 4\n\n  Array [\n    Array [\n-     0,\n-   ],\n-   Array [\n      -10,\n    ],\n    Array [\n-     0,\n+     -20,\n    ],\n    Array [\n      -10,\n+   ],\n+   Array [\n+     -20,\n    ],\n  ]\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:520:35)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "043afe0124d1cf023a5ccbcd1c9c5aefa7b229136b80a002cc3123d104eb923a"
+      ]
+    },
+    {
+      "fullName": "Slider onlyMarkValue keyboard navigation should preserve arrows (vertical=true reverse=true rtl=true)",
+      "ancestorTitles": [
+        "Slider onlyMarkValue keyboard navigation"
+      ],
+      "title": "should preserve arrows (vertical=true reverse=true rtl=true)",
+      "status": "failed",
+      "failureMessages": [
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 4\n+ Received  + 4\n\n  Array [\n    Array [\n-     0,\n-   ],\n-   Array [\n      -10,\n    ],\n    Array [\n-     0,\n+     -20,\n    ],\n    Array [\n      -10,\n+   ],\n+   Array [\n+     -20,\n    ],\n  ]\n    at Object.<anonymous> (<RUNNER_WORKSPACE>/baseline/components/Slider/__test__/index.test.tsx:520:35)\n    at Object.asyncJestTest (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:45:12\n    at new Promise (<anonymous>)\n    at mapper (<RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:28:19)\n    at <RUNNER_WORKSPACE>/baseline/node_modules/jest-jasmine2/build/queueRunner.js:75:41"
+      ],
+      "originalFailureMessagesSha256": [
+        "043afe0124d1cf023a5ccbcd1c9c5aefa7b229136b80a002cc3123d104eb923a"
+      ]
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 // Fail-closed classifier for original Jest JSON, not a replacement test runner.
-// The baseline payloads below are static predictions and have not been observed.
+// The frozen baseline predictions are checked against original Jest output.
+// The numeric spy-array diff format was observed in Actions run 37483595078.
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
@@ -41,30 +42,57 @@ function parseNumeric(text) {
   must(numeric(value), 'Failure value has an unexpected type.');
   return value;
 }
-function diffValues(message) {
+function parseDiffValue(text, prediction) {
+  let literal = text.trim();
+  if (literal.endsWith(',')) {
+    // Jest 26 prints one outer argument delimiter for a single array argument.
+    // Do not admit it for toEqual, scalar spies, extra arguments, or other payloads.
+    must(prediction.matcher === 'toHaveBeenLastCalledWith' &&
+      Array.isArray(prediction.expected) && Array.isArray(prediction.received) &&
+      /^Array\s*\[[\s\S]*\],$/.test(literal),
+    'Outer comma is not a single-array spy argument delimiter.');
+    literal = literal.slice(0, -1);
+  }
+  return parseNumeric(literal);
+}
+function diffValues(message, prediction) {
   const lines = message.split('\n');
   const header = lines.findIndex(line => /^- Expected(?:\s|$)/.test(line.trim()));
   if (header < 0) return null;
   const receivedHeader = lines.findIndex((line, i) => i > header && /^\+ Received(?:\s|$)/.test(line.trim()));
-  if (receivedHeader < 0) return null;
-  let wanted = '', received = '', began = false;
+  must(receivedHeader > header, 'Missing Received diff header.');
+  must(/^- Expected(?:  - \d+)?$/.test(lines[header].trim()) &&
+    /^\+ Received(?:  \+ \d+)?$/.test(lines[receivedHeader].trim()) &&
+    lines.slice(header + 1, receivedHeader).every(line => !line.trim()),
+  'Unexpected diff headers or content between them.');
+  let wanted = '', received = '', began = false, footer = -1;
   for (let i = receivedHeader + 1; i < lines.length; i++) {
     const line = lines[i];
-    if (!line.trim() && !began) continue;
-    if (line.startsWith('- ')) { wanted += line.slice(2) + '\n'; began = true; }
-    else if (line.startsWith('+ ')) { received += line.slice(2) + '\n'; began = true; }
+    if (!line.trim()) continue;
+    if (/^Number of calls: \d+$/.test(line.trim()) || /^\s+at .+$/.test(line)) {
+      footer = i;
+      break;
+    }
+    if (line.startsWith('- ')) wanted += line.slice(2) + '\n';
+    else if (line.startsWith('+ ')) received += line.slice(2) + '\n';
     else if (line.startsWith('  ')) {
       wanted += line.slice(2) + '\n';
       received += line.slice(2) + '\n';
-      began = true;
-    } else break;
-    try {
-      return { expected: parseNumeric(wanted), received: parseNumeric(received), from: 'exact numeric diff' };
-    } catch (_) {
-      // Continue only until a complete numeric value exists on both sides.
-    }
+    } else throw new Error('Unexpected content in numeric diff payload.');
+    began = true;
   }
-  throw new Error('Could not decode the complete numeric Expected/Received diff.');
+  must(began && footer >= 0, 'Empty or unterminated numeric diff.');
+  const tail = lines.slice(footer).filter(line => line.trim());
+  if (prediction.matcher === 'toHaveBeenLastCalledWith') {
+    equal(tail.shift().trim(), 'Number of calls: ' + prediction.callCount,
+      'Spy diff footer differs from prediction.');
+  }
+  must(tail.length > 0 && tail.every(line => /^\s+at .+$/.test(line)),
+    'Unexpected trailing content after numeric diff.');
+  // Parse only after consuming the entire payload. A valid prefix is insufficient:
+  // second arguments, trailing prose and truncated arrays must all be rejected.
+  return { expected: parseDiffValue(wanted, prediction),
+    received: parseDiffValue(received, prediction), from: 'exact numeric diff' };
 }
 function labeledValues(message, prediction) {
   const lines = message.split('\n');
@@ -110,7 +138,7 @@ function failureValues(result, prediction, message) {
       }
     }
   }
-  return diffValues(message) || labeledValues(message, prediction);
+  return diffValues(message, prediction) || labeledValues(message, prediction);
 }
 function classifyFailure(result, specification) {
   const prediction = specification.firstFailure;
@@ -217,6 +245,9 @@ function classify(variant, full = false) {
     dependencySha256: audit.dependencies.sha256, failures });
 }
 
+module.exports = { classifyFailure };
+
+if (require.main === module) {
 try {
   must(mode === 'focused' || mode === 'full', 'Use focused or full classification mode.');
   if (mode === 'focused') {
@@ -239,3 +270,4 @@ try {
 }
 fs.writeFileSync(path.join(evidence, mode + '.classification.json'), JSON.stringify(report, null, 2) + '\n');
 console.log(JSON.stringify(report, null, 2));
+}
