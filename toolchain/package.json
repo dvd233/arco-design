@@ -1,9 +1,0 @@
-{
-  "name": "arco-slider-native-validation-toolchain",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Isolated exact Yarn CLI for the source-bound native validation workflow.",
-  "dependencies": {
-    "yarn": "1.22.22"
-  }
-}

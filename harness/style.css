@@ -1,8 +1,0 @@
-body { margin: 32px; background: white; color: #202124; font: 16px/1.5 sans-serif; }
-main { max-width: 760px; margin: auto; }
-section { padding: 32px; border: 1px solid #ccd2dc; }
-#slider-area { min-height: 320px; padding: 48px 30px; }
-#slider-area[data-vertical="true"] { height: 390px; }
-#slider-area[data-vertical="true"] > .arco-slider { height: 280px; }
-button { padding: 8px 12px; margin: 8px; }
-pre { white-space: pre-wrap; overflow-wrap: anywhere; }
