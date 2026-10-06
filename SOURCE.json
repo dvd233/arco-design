@@ -1,0 +1,44 @@
+{
+  "repository": "https://github.com/arco-design/arco-design",
+  "commit": "c2b050d9c7ce94bebba94f616a0721344231caac",
+  "packageVersionInSource": "2.66.16",
+  "files": [
+    {
+      "path": "upstream/components/Slider/hooks/useLegalValue.ts",
+      "originalPath": "components/Slider/hooks/useLegalValue.ts",
+      "url": "https://github.com/arco-design/arco-design/blob/c2b050d9c7ce94bebba94f616a0721344231caac/components/Slider/hooks/useLegalValue.ts",
+      "sha256": "06f182033e3fa390b9168f9432284eace355e777ea2d6151077050d9712e5467"
+    },
+    {
+      "path": "upstream/components/Slider/hooks/useInterval.ts",
+      "originalPath": "components/Slider/hooks/useInterval.ts",
+      "url": "https://github.com/arco-design/arco-design/blob/c2b050d9c7ce94bebba94f616a0721344231caac/components/Slider/hooks/useInterval.ts",
+      "sha256": "7def8de20b7178bc522a8aaf4c1bb54c9cec7760b24c74c4c3896b4ac84d7f00"
+    },
+    {
+      "path": "upstream/components/Slider/utils.ts",
+      "originalPath": "components/Slider/utils.ts",
+      "url": "https://github.com/arco-design/arco-design/blob/c2b050d9c7ce94bebba94f616a0721344231caac/components/Slider/utils.ts",
+      "sha256": "8761612308349e7a01b993c2c80836d38734d6d92745f17ca307e446f56015df"
+    },
+    {
+      "path": "upstream/components/_util/is.ts",
+      "originalPath": "components/_util/is.ts",
+      "url": "https://github.com/arco-design/arco-design/blob/c2b050d9c7ce94bebba94f616a0721344231caac/components/_util/is.ts",
+      "sha256": "47368fdd850a9982e83866055822df02bc61aabd698c44d175719958e5a2d38f"
+    },
+    {
+      "path": "upstream/LICENSE",
+      "originalPath": "LICENSE",
+      "url": "https://github.com/arco-design/arco-design/blob/c2b050d9c7ce94bebba94f616a0721344231caac/LICENSE",
+      "sha256": "41f929ce996762fbbfc9760266c45558e9f48f6179b2c2149e6eca6d1efc9123"
+    }
+  ],
+  "publishedPackage": {
+    "name": "@arco-design/web-react",
+    "version": "2.66.16",
+    "metadataUrl": "https://registry.npmjs.org/@arco-design%2fweb-react/2.66.16",
+    "gitHead": "fbf2ec0a8cc28a5d20f1f82de6c2c4196ef66950",
+    "testedRuntimeSourcesIdenticalToResearchCommit": true
+  }
+}

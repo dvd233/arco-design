@@ -1,123 +1,62 @@
-<div align="center">
-  <a href="https://arco.design" target="_blank">
-    <img alt="Arco Design Logo" width="200" src="https://avatars.githubusercontent.com/u/64576149?s=200&v=4"/>
-  </a>
-</div>
-<div align="center">
-  <h1>Arco Design</h1>
-</div>
+# Reproduce Slider's negative-mark keyboard ordering
 
-<div align="center">
+This small project reproduces a numerical selection bug in Arco React's existing `onlyMarkValue` keyboard path. It uses unmodified upstream source with React 16.14 and `react-test-renderer` 16.14. It does not contain a product fix.
 
-A comprehensive React UI components library based on the [Arco Design](https://arco.design/) system.
+## Run
 
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/arco-design/arco-design/blob/main/LICENSE)
-[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/arco-design/awesome-arco)
+Use Node.js 18 or later (verified with Node.js 24.19.0):
 
-</div>
-
-<div align="center">
-
-English | [简体中文](./README.zh-CN.md)
-
-</div>
-
-https://user-images.githubusercontent.com/19399269/141435899-e453cf75-d50f-4549-b8d0-37daebe46c36.mp4
-
-# Features
-
-## Comprehensive
-
-With more than 60 crafted components that you can use out of the box.
-
-## Customizable theme
-
-Extensive design tokens can be customized to build your own theme. Two ways
-of customization are supported:
-
-* [With less-loader](https://arco.design/react/docs/theme)
-* [Design Lab](https://arco.design/themes) - Recommended!
-
-## Reusable custom materials
-
-[Material market](https://arco.design/material/) provides a one-stop solution for materials management. Reuse customized modules to make a breakthrough in efficiency.
-
-## TypeScript friendly
-
-All components are written in TypeScript so it's type friendly.
-
-
-# Installation
-
-Available as an [npm package](https://www.npmjs.com/package/@arco-design/web-react)
-
-```bash
-// with npm
-npm install @arco-design/web-react
-
-// with yarn
-yarn add @arco-design/web-react
+```sh
+npm ci --ignore-scripts
+npm test
+npm run test:controls
 ```
 
-# Examples
+Expected baseline results:
 
-```typescript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Button } from '@arco-design/web-react';
-import '@arco-design/web-react/dist/css/arco.css';
+- `npm test` exits **1**: 21 tests, **11 failing bug assertions and 10 passing controls**.
+- `npm run test:controls` exits **0**: **10/10 controls pass**.
+- Source verification checks the hashes of all four copied source files and the original MIT license before testing.
 
-function App() {
-  return (
-    <Button type='secondary'>
-      Hello World
-    </Button>
-  );
-}
+Eight failures concern **documented negative integer marks**. Three additional failures concern decimal marks; decimals already appear in upstream rendering tests, but the API text says integer, so they are supplemental evidence rather than the core bug claim.
 
-ReactDOM.render(<App />, document.getElementById('app'));
+## Primary reproduction
+
+The component props are:
+
+```tsx
+<Slider
+  min={-20}
+  max={20}
+  onlyMarkValue
+  marks={{ '-20': '-20', '-10': '-10', 0: '0', 10: '10', 20: '20' }}
+  defaultValue={-10}
+/>
 ```
 
-# Useful Links
+Its existing keyboard handler maps Right/Up to addition and Left/Down to subtraction. The unchanged hook returns these results:
 
-* [Documentation website](https://arco.design/)
-* [Components documentation](https://arco.design/react/docs/overview)
-* [Dark mode](https://arco.design/react/docs/dark)
-* [Theme customization](https://arco.design/react/docs/theme)
-* [Figma component library](https://www.figma.com/file/M66cTiLXHa4SVyZIlfY5Pb/arco-Design-System?node-id=7945%3A44563)
-* [Awesome Arco](https://github.com/arco-design/awesome-arco)
-* [Bundler Plugins](https://github.com/arco-design/arco-plugins)
+| Current mark | Direction | Expected | Baseline |
+| --- | --- | --- | --- |
+| -10 | addition | 0 | -10 |
+| 0 | subtraction | -10 | 0 |
+| 20 | addition | 20 | -20 |
+| -20 | subtraction | -20 | 20 |
 
-# Ecosystems
+`Object.keys(marks)` enumerates the example as `['0', '10', '20', '-20', '-10']`. The keyboard path uses this array without numeric sorting, whereas rendered marks are already sorted numerically. Negative-only keys supplied in a different insertion order fail too.
 
-| Project               | Description                                             |
-| --------------------- | ------------------------------------------------------- |
-| [Vue Component Library] | A comprehensive Vue UI components library based on the [Arco Design](https://arco.design/) system |
-| [Design Lab] | A platform to create and manage your themes with ease. |
-| [Material Market] | A platform that provides massive high-quality customized materials to greatly boost development efficiency. |
-| [Icon Box] | One-stop platform to manage your icons. |
-| [Arco Pro] | A solution to quickly building applications from scratch. |
+## What these tests prove
 
-[Vue Component Library]: https://arco.design/vue/docs/start
-[Design Lab]: https://arco.design/themes
-[Material Market]: https://arco.design/material
-[Icon Box]: https://arco.design/iconbox
-[Arco Pro]: https://arco.design/pro/
+The tests render the **real upstream hooks** through React, then call their actual normalization and next-mark functions. No hook implementation is copied into the test or mocked. The cases cover numeric ordering, boundaries, repeated traversal, a range endpoint, nearest-mark normalization, normal step mode, and positive-only controls.
 
-# Browser Support
+This is an **offline hook-level reproduction**, not browser or full-component DOM verification. The handler-composition tests mirror the component's normalization/selection path; they do not dispatch a native keyboard event. No browser verification or complete upstream test-suite pass is claimed.
 
-| [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/08095282566ac4e0fd98f89aed934b65.png~tplv-uwbnlip3yd-png.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>IE / Edge | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/40ad73571879dd8d9fd3fd524e0e45a4.png~tplv-uwbnlip3yd-png.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/4f59d35f6d6837b042c8badd95871b1d.png~tplv-uwbnlip3yd-png.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/eee2667f837a9c2ed531805850bf43ec.png~tplv-uwbnlip3yd-png.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3240334d3967dd263c8f4cdd2d93c525.png~tplv-uwbnlip3yd-png.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/f2454685df95a1a557a61861c5bec256.png~tplv-uwbnlip3yd-png.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Electron |
-| --------- | --------- | --------- | --------- | --------- | --------- |
-| Edge 16| 31| 49 | 31 | 36 | last 2 versions |
+## Source and provenance
 
-# Contributing
+Repository: https://github.com/arco-design/arco-design
 
-Developers interested in contributing should read the [Code of Conduct](./CODE_OF_CONDUCT.md) and the [Contributing Guide](./CONTRIBUTING.md).
+Fixed research commit: `c2b050d9c7ce94bebba94f616a0721344231caac`.
 
-Thank you to all the people who already contributed to ArcoDesign!
+The source package.json identifies version `2.66.16`. The official npm metadata for that release points to `fbf2ec0a8cc28a5d20f1f82de6c2c4196ef66950`, which is a different repository commit. All four runtime source files used here were fetched from that fixed release commit and are byte-for-byte identical to the research commit. Thus the fixture also reproduces the released 2.66.16 source logic. `SOURCE.json` records the exact original URL and SHA-256 of each copied file. All files under `upstream/` are unmodified. The upstream MIT license is retained at `upstream/LICENSE`.
 
-<a href="https://github.com/arco-design/arco-design/graphs/contributors"><img src="https://contrib.rocks/image?repo=arco-design/arco-design" /></a>
-
-# License
-
-This project is [MIT licensed](./LICENSE).
+The fixture compiles only the runtime imports needed by these hooks with esbuild. It is not an upstream TypeScript-check or full library build. The lockfile pins the small reproduction dependency set. Generated JavaScript and installed dependencies are ignored by Git.
