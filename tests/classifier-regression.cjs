@@ -11,7 +11,9 @@ const bundle = path.resolve(__dirname, '..');
 const { classifyFailure } = require('../scripts/classify-results.cjs');
 const inventory = JSON.parse(fs.readFileSync(path.join(bundle, 'expected-tests.json'), 'utf8'));
 const fixture = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures/native-run-37483595078-failures.json'), 'utf8'));
-const specifications = new Map(inventory.tests.map(test => [test.title, test]));
+const historicalInventory = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures/native-run-37483595078-expected-tests.json'), 'utf8'));
+const specifications = new Map(historicalInventory.tests.map(test => [test.title, test]));
+const currentSpecifications = new Map(inventory.tests.map(test => [test.title, test]));
 const cases = new Map(fixture.cases.map(test => [test.title, test]));
 const report = { scope: 'Classifier-only regression tests, not native/product/build/browser execution.',
   fixtureRun: fixture.provenance.runId, checks: [] };
@@ -56,6 +58,29 @@ for (const test of fixture.cases) {
     assert.strictEqual(result.sourceLine, specification.firstFailure.sourceLine);
   });
 }
+
+// Keep real historical fixture bytes/locations unchanged. The following cases are
+// explicitly synthetic location rebinding for the whitespace-only new source.
+for (const test of fixture.cases) {
+  check('synthetic formatting-only source-line rebind: ' + test.title, () => {
+    const previous = specifications.get(test.title), current = currentSpecifications.get(test.title);
+    const previousShape = clone(previous), currentShape = clone(current);
+    delete previousShape.firstFailure.sourceLine; delete currentShape.firstFailure.sourceLine;
+    assert.deepStrictEqual(previousShape, currentShape, 'Assertion semantics changed.');
+    const input = clone(test);
+    const from = 'index.test.tsx:' + previous.firstFailure.sourceLine + ':';
+    const to = 'index.test.tsx:' + current.firstFailure.sourceLine + ':';
+    input.failureMessages = input.failureMessages.map(message => {
+      assert(message.includes(from));
+      return message.split(from).join(to);
+    });
+    assert.strictEqual(classifyFailure(input, current).sourceLine, current.firstFailure.sourceLine);
+  });
+}
+check('new freeze rejects unchanged historical shifted source location', () => {
+  const title = 'should navigate range values for -10,10';
+  assert.throws(() => classifyFailure(clone(cases.get(title)), currentSpecifications.get(title)));
+});
 
 const range = 'should navigate range values for -10,10';
 const scalar = 'should traverse mixed marks inserted out of order in numeric order';
@@ -106,9 +131,13 @@ function replay(classifier) {
   try {
     fs.mkdirSync(path.join(temp, 'scripts'));
     fs.copyFileSync(classifier, path.join(temp, 'scripts/classify-results.cjs'));
-    for (const name of ['source-manifest.json', 'expected-tests.json']) {
-      fs.copyFileSync(path.join(bundle, name), path.join(temp, name));
-    }
+    // This optional replay remains bound to the historical run, not the new freeze.
+    fs.writeFileSync(path.join(temp, 'source-manifest.json'), JSON.stringify({ variants: {
+      baseline: { tree: fixture.provenance.baselineTree },
+      candidate: { tree: fixture.provenance.sourceCandidateTree }
+    } }));
+    fs.copyFileSync(path.join(__dirname, 'fixtures/native-run-37483595078-expected-tests.json'),
+      path.join(temp, 'expected-tests.json'));
     for (const variant of ['baseline', 'candidate']) {
       fs.mkdirSync(path.join(temp, 'evidence', variant), { recursive: true });
       for (const name of ['focused.jest.json', 'focused.exit-code', 'focused-completed.exit-code',

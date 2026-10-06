@@ -1,12 +1,12 @@
 # Independent native-quality extension (draft, not executed)
 
-This v3 validation-only bundle adds a separate `native-quality` job after `native-dom` in the same exact own-fork workflow/ref. The original native driver, parser, tests, patches, source freeze and toolchain files are unchanged. Its successful v2 hosted run was [37486928843](https://github.com/dvd233/arco-design/actions/runs/37486928843): the candidate's original Slider index had 44 passing tests and four unchanged snapshots. That earlier evidence does not establish any of the new quality gates below.
+This validation-only bundle adds a separate `native-quality` job after `native-dom` in the same exact own-fork workflow/ref. Native execution/classification semantics and toolchain remain unchanged. Source identities, formatted patches, exact assertion locations and strict ancestry checks are rebound for the new source; historical parser fixtures remain unchanged. Its successful v2 hosted run was [37486928843](https://github.com/dvd233/arco-design/actions/runs/37486928843): the candidate's original Slider index had 44 passing tests and four unchanged snapshots. That earlier evidence does not establish any of the new quality gates below.
 
 All new native installs, configuration captures, lint/format/type checks, builds, expanded/aggregate suites and CSS generation are **NOT RUN** during preparation. Only syntax checks and dependency-free synthetic guards/classifiers have been exercised locally. New independent review is required before publication. No browser validation, release, merge or deployment is claimed.
 
 ## Frozen inputs and stage separation
 
-- Candidate: `2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65`, tree `0a9a01536e61e5119f753f972e71967ac251f9c9`, sole parent below.
+- Candidate: `a1ea1670c162248348515ddfa14e445860bb3c22`, tree `ce1acd1765289aa70d6e02e89c5f9138f447db58`; exact direct parent `2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65`, whose sole parent is the pristine base below.
 - Pristine comparator: `c2b050d9c7ce94bebba94f616a0721344231caac`, tree `51f988b198e24b8ea898e5803cfa0698280a1ef7`.
 - Fresh independent `quality-candidate` and `quality-baseline` checkouts. The quality baseline never applies the native behavioral regression-test patch. No earlier source, dependency or build artifacts are downloaded or reused.
 - Ubuntu 24.04, Node 16.20.2, locked Yarn 1.22.22; frozen root and site installs with install scripts disabled. Original `yarn icon` is explicit. Browser-download suppression is active.

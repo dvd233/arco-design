@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "describe": "Slider onlyMarkValue keyboard navigation",
   "sourceFile": "components/Slider/__test__/index.test.tsx",
-  "sourceSha256": "a5acb850032de6f4b3e25391672e25843a0e519ca5dc32f6d21465d72e8b3e86",
+  "sourceSha256": "834845c79109cbeae2a08f87e4ac2d77af2fa19b0d184770c4d4f79762636521",
   "status": "Static predictions only. Not measured native results. Fail closed if output or any primary failure differs.",
   "expectedFocusedCount": 22,
   "predictedBaselineFailed": 18,
@@ -67,7 +67,7 @@
             10
           ]
         ],
-        "sourceLine": 415
+        "sourceLine": 413
       }
     },
     {
@@ -91,7 +91,7 @@
             -10
           ]
         ],
-        "sourceLine": 415
+        "sourceLine": 413
       }
     },
     {
@@ -101,7 +101,7 @@
         "matcher": "toHaveBeenLastCalledWith",
         "expected": 0,
         "received": -10,
-        "sourceLine": 426,
+        "sourceLine": 424,
         "callCount": 1
       }
     },
@@ -118,7 +118,7 @@
           -10,
           10
         ],
-        "sourceLine": 443,
+        "sourceLine": 441,
         "callCount": 1
       }
     },
@@ -137,7 +137,7 @@
           -10,
           10
         ],
-        "sourceLine": 443,
+        "sourceLine": 441,
         "callCount": 1
       }
     },
@@ -154,7 +154,7 @@
           -10,
           0
         ],
-        "sourceLine": 461,
+        "sourceLine": 457,
         "callCount": 1
       }
     },
@@ -179,7 +179,7 @@
             -10
           ]
         ],
-        "sourceLine": 476
+        "sourceLine": 472
       }
     },
     {
@@ -219,7 +219,7 @@
             -20
           ]
         ],
-        "sourceLine": 524
+        "sourceLine": 520
       }
     },
     {
@@ -255,7 +255,7 @@
             -20
           ]
         ],
-        "sourceLine": 524
+        "sourceLine": 520
       }
     },
     {
@@ -291,7 +291,7 @@
             -20
           ]
         ],
-        "sourceLine": 524
+        "sourceLine": 520
       }
     },
     {
@@ -327,7 +327,7 @@
             -20
           ]
         ],
-        "sourceLine": 524
+        "sourceLine": 520
       }
     },
     {
@@ -363,7 +363,7 @@
             -20
           ]
         ],
-        "sourceLine": 524
+        "sourceLine": 520
       }
     },
     {
@@ -399,7 +399,7 @@
             -20
           ]
         ],
-        "sourceLine": 524
+        "sourceLine": 520
       }
     },
     {
@@ -435,7 +435,7 @@
             -20
           ]
         ],
-        "sourceLine": 524
+        "sourceLine": 520
       }
     },
     {
@@ -471,7 +471,7 @@
             -20
           ]
         ],
-        "sourceLine": 524
+        "sourceLine": 520
       }
     },
     {

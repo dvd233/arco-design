@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceFreezeVersion": 2,
+  "sourceFreezeVersion": 3,
   "sourceRepository": "dvd233/arco-design",
   "sourceRepositoryUrl": "https://github.com/dvd233/arco-design",
   "upstreamRepositoryUrl": "https://github.com/arco-design/arco-design",
@@ -12,16 +12,16 @@
   "yarnVersion": "1.22.22",
   "variants": {
     "baseline": {
-      "tree": "b5e76a788981e52ca5e08b3cfc0d1baf8b7627fe",
+      "tree": "0e2cf96d352a5374cc2f0c6eda01159db1451f6c",
       "patch": "patches/native-tests.patch",
       "hookSha256": "06f182033e3fa390b9168f9432284eace355e777ea2d6151077050d9712e5467",
       "checkoutCommit": "c2b050d9c7ce94bebba94f616a0721344231caac"
     },
     "candidate": {
-      "tree": "0a9a01536e61e5119f753f972e71967ac251f9c9",
+      "tree": "ce1acd1765289aa70d6e02e89c5f9138f447db58",
       "patch": "patches/candidate.patch",
       "hookSha256": "f12f5a80fa6f2f154b81168037724bee8d3db685080256e573a5203abfbbd7d0",
-      "checkoutCommit": "2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65"
+      "checkoutCommit": "a1ea1670c162248348515ddfa14e445860bb3c22"
     }
   },
   "candidateSourceSha256": {
@@ -37,7 +37,7 @@
     "tests/util.ts": "52910f69c300d42c43cb776f2f72621c349f94d07dd944b166b2500e11275a82",
     "tests/mountTest.tsx": "fcc1b46869a9a68627dd14d66feb82371916bea1d5b59d0224bcf1568be77446",
     "tests/componentConfigTest.tsx": "1d5eb8edf78e5f1b1fc35f23ceef586e7c2418282ef699ee617e9c989957bba2",
-    "components/Slider/__test__/index.test.tsx": "834845c79109cbeae2a08f87e4ac2d77af2fa19b0d184770c4d4f79762636521",
+    "components/Slider/__test__/index.test.tsx": "a5acb850032de6f4b3e25391672e25843a0e519ca5dc32f6d21465d72e8b3e86",
     "components/Slider/__test__/__snapshots__/index.test.tsx.snap": "c0bb0457973208ced0f70244e59c57912731c1b3c9059e8dc46e7743b3aa0a31",
     "components/Slider/hooks/useLegalValue.ts": "f12f5a80fa6f2f154b81168037724bee8d3db685080256e573a5203abfbbd7d0",
     "components/Slider/hooks/useInterval.ts": "7def8de20b7178bc522a8aaf4c1bb54c9cec7760b24c74c4c3896b4ac84d7f00",
@@ -71,8 +71,9 @@
     "snapshots": "Never update snapshots; CI=true and --ci.",
     "status": "All native tests, workflow execution, builds and browser checks NOT RUN during preparation."
   },
-  "candidateCommit": "2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65",
-  "candidateCommitUrl": "https://github.com/dvd233/arco-design/commit/2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65",
-  "candidateParent": "c2b050d9c7ce94bebba94f616a0721344231caac",
-  "sourceCommitVerification": "Commit, sole parent and tree were verified by the publisher; the workflow independently checks all three plus candidate.patch reconstruction."
+  "candidateCommit": "a1ea1670c162248348515ddfa14e445860bb3c22",
+  "candidateCommitUrl": "https://github.com/dvd233/arco-design/commit/a1ea1670c162248348515ddfa14e445860bb3c22",
+  "candidateParent": "2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65",
+  "sourceCommitVerification": "The formatted candidate is bound to the exact new commit, its sole reviewed-fix parent, the parent tree, and original sole base grandparent; the workflow also reconstructs candidate.patch from the frozen original base.",
+  "candidateParentTree": "0a9a01536e61e5119f753f972e71967ac251f9c9"
 }

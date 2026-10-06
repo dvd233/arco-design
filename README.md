@@ -1,3 +1,9 @@
+# Native quality source rebind, version 5
+
+The preceding exact source passed types, CJS/ES/CSS builds, Slider client59 tests/19 snapshots, full client213 suites/1855 tests/924 snapshots and full node71 suites/668 tests/668 snapshots in [run37497734711](https://github.com/dvd233/arco-design/actions/runs/37497734711). Two formatting-only failures remained in newly added tests. The [new candidate](https://github.com/dvd233/arco-design/commit/a1ea1670c162248348515ddfa14e445860bb3c22) applies exactly those two ESLint/Prettier whitespace fixes. The runtime hook, test tokens, case titles, assertions and snapshot bytes are unchanged. This new exact source has not yet been rerun; prior passing results are not reused as its acceptance.
+
+The behavioral baseline receives the same newly formatted test patch. Strict failure locations are rebound to the exact new lines, and candidate checkouts fetch the reviewed parent plus original base. Historical native failure fixtures retain their original bytes and source locations; separately labeled synthetic checks cover the formatting-only location changes. No quality-gate or classifier behavior is relaxed.
+
 # Native quality metadata repair, version 4
 
 The first quality run ([37495212993](https://github.com/dvd233/arco-design/actions/runs/37495212993)) passed frozen root/site installs on candidate and pristine base, then stopped at metadata inspection because react-easy-crop hides its package.json export. Later quality gates did not run. This narrow observer-only repair uses the package's permitted public entry to locate and read its installed manifest as data, preserving boundary/name/version/hash checks and executing no package code. Sixteen dependency-free metadata probes pass locally; the repaired hosted quality stages have not run. Original product/native proof stages are unchanged.

@@ -79,9 +79,7 @@ def prepare(variant, root, evidence):
     if native.command(root, 'status', '--porcelain') or native.git_paths(root, 'ls-files', '--others'):
         raise ValueError('Fresh checkout contains tracked changes or untracked/ignored inputs')
     if variant == 'candidate':
-        parents = native.command(root, 'show', '-s', '--format=%P', 'HEAD').decode().strip().split()
-        if parents != [SOURCE['baseCommit']]:
-            raise ValueError('Candidate sole parent differs')
+        native.verify_candidate_ancestry(root)
         if native.reconstruct_patch(root, BUNDLE / 'patches/candidate.patch') != tree:
             raise ValueError('Candidate patch/tree differs')
     write(evidence / 'source.json', {'variant': variant, 'commit': commit, 'tree': tree,

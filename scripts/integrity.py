@@ -107,6 +107,17 @@ def reconstruct_patch(root, patch):
                 path.unlink()
 
 
+def verify_candidate_ancestry(root):
+    # The formatted candidate is an exact child of the previously reviewed fix.
+    parent = SOURCE['candidateParent']
+    if command(root, 'show', '-s', '--format=%P', 'HEAD').decode().strip().split() != [parent]:
+        raise ValueError('Candidate does not have the exact frozen direct parent.')
+    if command(root, 'show', '-s', '--format=%P', parent).decode().strip().split() != [SOURCE['baseCommit']]:
+        raise ValueError('Candidate parent does not have the exact frozen base parent.')
+    if command(root, 'rev-parse', parent + '^{tree}').decode().strip() != SOURCE['candidateParentTree']:
+        raise ValueError('Candidate parent tree differs from the reviewed fix.')
+
+
 def prepare(variant, root, evidence):
     specification = SOURCE['variants'][variant]
     head = command(root, 'rev-parse', 'HEAD').decode().strip()
@@ -121,9 +132,7 @@ def prepare(variant, root, evidence):
     if reconstructed != specification['tree']:
         raise ValueError('Base plus frozen patch does not reconstruct the expected variant tree.')
     if variant == 'candidate':
-        parents = command(root, 'show', '-s', '--format=%P', 'HEAD').decode().strip().split()
-        if parents != [SOURCE['baseCommit']]:
-            raise ValueError('Candidate does not have the exact sole frozen parent.')
+        verify_candidate_ancestry(root)
         if command(root, 'rev-parse', 'HEAD^{tree}').decode().strip() != reconstructed:
             raise ValueError('Published candidate commit differs from the reviewed patch tree.')
         # The exact commit already contains candidate.patch. Never apply it twice.

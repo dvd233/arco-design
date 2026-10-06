@@ -20,5 +20,5 @@
   "deploy": false,
   "packageInstalls": "No packages installed locally while preparing any bundle. Hosted v3 run37495212993 passed exact candidate/base root+site installs, then failed metadata inspection; repaired v4 hosted run remains pending.",
   "artifactRetentionDays": 7,
-  "scope": "Preserved native-dom proof plus independent dependent native-quality: pristine source comparator, frozen root/site installs, original config/list capture, changed-file lint/format, source types, native CJS/ES/CSS, Slider index+demo client and complete configured client/node. V4 repairs only metadata discovery for a hidden package.json export. No native commands executed locally; subsequent hosted lint/type/build/test gates remain unexecuted after the v3 metadata blocker. No browser execution."
+  "scope": "Preserved native-dom behavior and independent native-quality gates rebound to formatting-only source child a1ea1670c162248348515ddfa14e445860bb3c22. Exact parent 2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65, original pristine base c2b050d9c7ce94bebba94f616a0721344231caac, no gate/threshold/runner change. Prior source run 37497734711 passed16 quality gates and failed only two formatting gates; new exact source awaits fresh native rerun. No browser execution."
 }

@@ -71,9 +71,9 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           repository: dvd233/arco-design
-          ref: 2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65
+          ref: a1ea1670c162248348515ddfa14e445860bb3c22
           path: candidate
-          fetch-depth: 2
+          fetch-depth: 3
           persist-credentials: false
           submodules: false
           lfs: false
@@ -138,9 +138,9 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           repository: dvd233/arco-design
-          ref: 2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65
+          ref: a1ea1670c162248348515ddfa14e445860bb3c22
           path: quality-candidate
-          fetch-depth: 2
+          fetch-depth: 3
           persist-credentials: false
           submodules: false
           lfs: false

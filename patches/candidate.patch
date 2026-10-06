@@ -1,5 +1,5 @@
 diff --git a/components/Slider/__test__/index.test.tsx b/components/Slider/__test__/index.test.tsx
-index 2417547..768c4c7 100644
+index 2417547..b6cd447 100644
 --- a/components/Slider/__test__/index.test.tsx
 +++ b/components/Slider/__test__/index.test.tsx
 @@ -3,6 +3,7 @@ import { act } from 'react-test-renderer';
@@ -10,7 +10,7 @@ index 2417547..768c4c7 100644
  import { SliderProps } from '../interface';
  import { fireEvent, render } from '../../../tests/util';
  
-@@ -335,3 +336,230 @@ describe('Slider ', () => {
+@@ -335,3 +336,234 @@ describe('Slider ', () => {
      expect(component2.find('.arco-input')[0]?.getAttribute('value')).toEqual('20');
    });
  });
@@ -84,7 +84,9 @@ index 2417547..768c4c7 100644
 +  ].forEach(({ value, key }) => {
 +    it(`should stay at mark boundary ${value} on ${key}`, () => {
 +      const onChange = jest.fn();
-+      const component = render(<Slider {...sliderProps} defaultValue={value} onChange={onChange} />);
++      const component = render(
++        <Slider {...sliderProps} defaultValue={value} onChange={onChange} />
++      );
 +      const button = component.getByRole('slider');
 +      pressArrow(button, key);
 +      pressArrow(button, key);
@@ -117,7 +119,9 @@ index 2417547..768c4c7 100644
 +      pressArrow(buttons[index], 'ArrowRight');
 +      const expected = value.map((mark) => (mark === -10 ? 0 : mark));
 +      expect(onChange).toHaveBeenLastCalledWith(expected);
-+      expect(buttons.map((button) => Number(button.getAttribute('aria-valuenow')))).toEqual(expected);
++      expect(buttons.map((button) => Number(button.getAttribute('aria-valuenow')))).toEqual(
++        expected
++      );
 +      pressArrow(buttons[index], 'ArrowLeft');
 +      expect(onChange).toHaveBeenLastCalledWith(value);
 +      pressArrow(buttons[buttons.length - 1], 'ArrowRight');

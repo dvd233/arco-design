@@ -17,7 +17,7 @@ const WRITERS = { 'root-install': ['node_modules/'], 'site-install': ['site/node
   'build-es': ['es/', 'hooks/es/'], 'build-css': ['es/', 'lib/', 'dist/css/', 'dist/asset/'],
   'slider-client': ['.coverage/'], 'full-client': ['.coverage/'] };
 const SOURCE = Object.freeze({
-  candidate: { commit: '2bbbbed7f1add2b25e35bb290f4eaf7e54f5dc65', tree: '0a9a01536e61e5119f753f972e71967ac251f9c9' },
+  candidate: { commit: 'a1ea1670c162248348515ddfa14e445860bb3c22', tree: 'ce1acd1765289aa70d6e02e89c5f9138f447db58' },
   baseline: { commit: 'c2b050d9c7ce94bebba94f616a0721344231caac', tree: '51f988b198e24b8ea898e5803cfa0698280a1ef7' }
 });
 const INSTALLS = ['root-install', 'site-install', 'runtime'];

@@ -46,6 +46,28 @@ class Guards(unittest.TestCase):
     def install(self):
         self.put('node_modules/example/package.json', '{"name":"example"}')
         self.audit('root-install')
+    def three_commit_chain(self):
+        self.put('tracked.ts', 'reviewed fix\n')
+        self.git('add', '.')
+        self.git('-c', 'user.name=Synthetic guard test', '-c', 'user.email=test@example.invalid', 'commit', '-qm', 'reviewed fix')
+        q.SOURCE['candidateParent'] = self.git('rev-parse', 'HEAD')
+        q.SOURCE['candidateParentTree'] = self.git('rev-parse', 'HEAD^{tree}')
+        self.put('tracked.ts', 'reviewed fix  \n')
+        self.git('add', '.')
+        self.git('-c', 'user.name=Synthetic guard test', '-c', 'user.email=test@example.invalid', 'commit', '-qm', 'format only')
+    def test_exact_candidate_parent_and_grandparent(self):
+        self.three_commit_chain()
+        q.native.verify_candidate_ancestry(self.root)
+        q.SOURCE['candidateParent'] = q.SOURCE['baseCommit']
+        with self.assertRaisesRegex(ValueError, 'direct parent'): q.native.verify_candidate_ancestry(self.root)
+    def test_wrong_candidate_grandparent_rejected(self):
+        self.three_commit_chain()
+        q.SOURCE['baseCommit'] = q.SOURCE['candidateParent']
+        with self.assertRaisesRegex(ValueError, 'base parent'): q.native.verify_candidate_ancestry(self.root)
+    def test_wrong_candidate_parent_tree_rejected(self):
+        self.three_commit_chain()
+        q.SOURCE['candidateParentTree'] = '0' * 40
+        with self.assertRaisesRegex(ValueError, 'parent tree'): q.native.verify_candidate_ancestry(self.root)
     def test_empty_fresh_source_passes(self):
         self.audit('changed-eslint', 'pre')
     def test_root_install_is_anchored(self):
